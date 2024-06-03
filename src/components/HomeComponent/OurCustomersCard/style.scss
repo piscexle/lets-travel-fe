@@ -1,0 +1,236 @@
+@import '@/styles/mixins.scss';
+
+.our-customers {
+  position: relative;
+  max-width: 1210px;
+  margin: 50px auto 0 auto;
+  @media (max-width: 1210px) {
+    padding: 0 20px;
+  }
+
+  .our-customers-header {
+    display: flex;
+    justify-content: space-between;
+
+    h3 {
+      color: var(--font-color-black-2);
+      font-size: var(--fs-title-1);
+      white-space: nowrap;
+      font-style: normal;
+      font-weight: 700;
+      line-height: 44px;
+      @media (max-width: $sm-min-width) {
+        font-size: var(--fs-title-3);
+        line-height: 40px;
+      }
+      @media (max-width: $xs-min-width) {
+        font-size: var(--fs-title-4);
+        line-height: 30px;
+        white-space: break-spaces;
+      }
+    }
+
+    .rectangle {
+      width: 64%;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap-reverse;
+      flex-direction: column;
+      overflow: hidden;
+
+      .rectangle-top {
+        width: 288px;
+        height: 12px;
+        border-radius: 8px;
+        background: var(--bg-color-rectangle-top);
+        margin-bottom: 7px;
+        order: 1;
+      }
+
+      .rectangle-bottom {
+        width: 546px;
+        height: 12px;
+        border-radius: 8px;
+        background: var(--bg-color-btn-primary);
+        order: 2;
+      }
+    }
+  }
+
+  .our-customers-main {
+    margin: 40px 0px;
+
+    .logo-customers {
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      @media (max-width: $md-min-width) {
+        grid-template-columns: repeat(4, 1fr);
+        grid-row-gap: 15px;
+      }
+      @media (max-width: $sm-min-width) {
+        grid-template-columns: repeat(3, 1fr);
+        grid-row-gap: 15px;
+      }
+      @media (max-width: $xs-min-width) {
+        grid-template-columns: repeat(2, 1fr);
+        grid-row-gap: 15px;
+      }
+
+      margin-top: 24px;
+      justify-content: space-evenly;
+      .ant-image {
+        width: 150px;
+        height: 75px;
+        background-position: center center;
+        background-repeat: no-repeat;
+        cursor: pointer;
+        filter: grayscale(100%);
+        transition: filter 0.5s ease;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+        }
+
+        &:hover {
+          filter: grayscale(0%);
+        }
+      }
+    }
+  }
+}
+//1199
+@media only screen and (max-width: $xl-max-width) {
+  .our-customers {
+    .our-customers-header {
+      .rectangle {
+        width: 72%;
+        .rectangle-top {
+          width: 250px;
+        }
+        .rectangle-bottom {
+          width: 498px;
+        }
+      }
+    }
+
+    .our-customers-main {
+      margin: 20px 0;
+    }
+  }
+}
+//991px
+@media only screen and (max-width: $md-max-width) {
+  .our-customers {
+    margin-top: 30px;
+    .our-customers-header {
+      .rectangle {
+        width: 64%;
+        .rectangle-top {
+          width: 218px;
+          height: 10px;
+        }
+        .rectangle-bottom {
+          width: 428px;
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+//767px
+@media only screen and (max-width: $sm-max-width) {
+  .our-customers {
+    .our-customers-header {
+      .rectangle {
+        width: 58%;
+        .rectangle-top {
+          width: 158px;
+          height: 10px;
+        }
+        .rectangle-bottom {
+          width: 292px;
+          height: 10px;
+        }
+      }
+    }
+  }
+}
+//575
+@media only screen and (max-width: $xs-max-width) {
+  .our-customers {
+    margin: 34px 0;
+    .our-customers-header {
+      .rectangle {
+        width: 53%;
+        .rectangle-top {
+          width: 110px;
+          height: 8px;
+        }
+        .rectangle-bottom {
+          width: 203px;
+          height: 8px;
+        }
+      }
+    }
+
+    .our-customers-main {
+      margin: 0;
+      .logo-customers {
+        .ant-image {
+          width: 100px;
+          height: 50px;
+        }
+      }
+    }
+  }
+}
+@media only screen and (max-width: ( $xs-max-width-large + 75px)) {
+  .our-customers {
+    margin: 20px 0;
+  }
+}
+//425px
+@media only screen and (max-width: $xs-max-width-large) {
+  .our-customers {
+    .our-customers-header {
+      .rectangle {
+        width: 42%;
+        .rectangle-top {
+          width: 98px;
+          height: 6px;
+        }
+        .rectangle-bottom {
+          width: 140px;
+          height: 6px;
+        }
+      }
+    }
+
+    .our-customers-main {
+      .logo-customers {
+        .ant-image {
+          height: 40px;
+        }
+      }
+    }
+  }
+}
+//375px
+@media only screen and (max-width: $xs-max-width-medium) {
+  .our-customers {
+    .our-customers-header {
+      .rectangle {
+        width: 35%;
+        .rectangle-top {
+          width: 56px;
+          height: 6px;
+        }
+        .rectangle-bottom {
+          width: 98px;
+          height: 6px;
+        }
+      }
+    }
+  }
+}

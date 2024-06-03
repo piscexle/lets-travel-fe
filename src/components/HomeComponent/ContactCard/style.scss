@@ -1,0 +1,216 @@
+@import '@/styles/mixins.scss';
+
+.contact-card {
+  margin: 58px 0px;
+  display: grid;
+  grid-template-columns: 1fr;
+  background-image: url('/images/tech_background.jpg');
+  background-position: center center;
+  background-repeat: no-repeat;
+
+  .contact-container {
+    width: 100%;
+    height: 100%;
+    background-color: var(--primary-color);
+    opacity: 0.85;
+    .ant-image {
+      width: 100%;
+      min-height: 500px;
+    }
+
+    .contact-container-image {
+      width: 100%;
+      height: 100%;
+    }
+
+    .contact-card-content {
+      height: 100%;
+
+      color: var(--bg-color-white);
+      padding: 25px 20px;
+      max-width: 1210px;
+      margin: 0 auto;
+      z-index: 1;
+
+      h3 {
+        font-size: var(--fs-header-primary);
+        font-style: normal;
+        font-weight: 700;
+        line-height: 44px;
+        margin-bottom: 20px;
+      }
+      p {
+        font-size: var(--fs-2);
+        font-weight: 400;
+        line-height: 24px;
+      }
+
+      .contact-form {
+        display: flex;
+        max-width: 100%;
+        margin-top: 15px;
+
+        .ant-col {
+          label {
+            color: var(--bg-color-white);
+            font-size: 1.7rem;
+          }
+        }
+
+        .form-container {
+          width: 100%;
+
+          .ant-input {
+            height: 44px;
+            border-radius: 12px;
+            border: 1px solid var(--primary-color);
+            background: var(--bg-color-white);
+            z-index: 10;
+          }
+
+          .input-note {
+            height: auto;
+          }
+        }
+        .button {
+          .btn-style,
+          .btn-style-vn {
+            padding: 20px 10px;
+            border: 1px solid var(--bg-color-btn-default-2);
+            background-color: var(--bg-color-btn-default-2);
+            box-shadow:
+              1px 1px 5px 0px #cbcbcb,
+              1px 1px 5px 0px #ffffff;
+            border-radius: 12px;
+            transition: all 0.4s ease;
+            svg {
+              path {
+                fill: var(--primary-color);
+              }
+            }
+            .button-text {
+              margin-left: 5px;
+              color: var(--primary-color);
+            }
+            &:hover {
+              background-color: var(--bg-color-btn-default-active);
+              border: 1px solid var(--bg-color-btn-default-active);
+              box-shadow:
+                1px 1px 5px 0px #a0a0a0,
+                1px 1px 5px 0px #cbcbcb;
+            }
+          }
+
+          @media (max-width: $md-min-width) {
+            align-items: flex-start;
+            justify-content: flex-start;
+            padding-bottom: 0;
+          }
+        }
+      }
+    }
+  }
+}
+//992px
+@media only screen and (max-width: $md-max-width) {
+  .contact-card {
+    margin-top: 34px;
+    margin-bottom: 0px;
+    .contact-container {
+      .contact-card-content {
+        h3 {
+          font-size: var(--fs-title-3);
+        }
+        p {
+          font-size: var(--fs-2);
+        }
+        .contact-form {
+          display: flex;
+          flex-direction: row;
+          .button {
+            // width: 33%;
+            .btn-style,
+            .btn-style-vn {
+              .button-text {
+                color: var(--primary-color);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+@media only screen and (max-width: $sm-max-width) {
+  .contact-card {
+    .contact-container {
+      height: 100%;
+      &-opacity-layer {
+        height: 100%;
+      }
+      .contact-card-content {
+        height: 100%;
+        p {
+          font-size: var(--fs-text-primary);
+        }
+        .contact-form {
+          display: block;
+          .form-container {
+            width: 100%;
+
+            .input-name,
+            .input-address,
+            .input-phone-number,
+            .input-email,
+            .input-note {
+              font-size: 1.6rem;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+//575px
+@media only screen and (max-width: $xs-max-width) {
+  .contact-card {
+    .contact-container {
+      height: 100%;
+      &-opacity-layer {
+        height: 100%;
+      }
+      .contact-card-content {
+        height: 100%;
+        p {
+          font-size: var(--fs-3);
+        }
+        .contact-form {
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          .ant-col {
+            label {
+              color: var(--bg-color-white);
+              font-size: var(--fs-3);
+            }
+          }
+          .form-container {
+            width: 100%;
+          }
+          .button {
+            .btn-style,
+            .btn-style-vn {
+              display: flex;
+              justify-content: center;
+              padding: 23px 30px 23px 20px;
+              .button-text {
+                font-size: var(--fs-3);
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

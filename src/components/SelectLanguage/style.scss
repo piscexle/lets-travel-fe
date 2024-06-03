@@ -1,0 +1,45 @@
+@import '@/styles/mixins.scss';
+
+.option-language {
+  display: flex;
+  flex-direction: column;
+  .ant-image {
+    margin: 6px 0;
+  }
+}
+
+.translation {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  margin-left: 30px;
+  .ant-image {
+    height: 28px;
+    width: 40px;
+    .image-style {
+      width: 100% !important;
+      height: 100% !important;
+    }
+  }
+  .ant-space-gap-col-small {
+    column-gap: 3px !important;
+  }
+  .ant-divider-vertical {
+    border-inline-start: 1px solid rgba(128, 128, 128, 0.6);
+    margin-inline: 3px;
+  }
+}
+
+.nav-language {
+  cursor: pointer;
+  padding: 10px 0px;
+  color: #000;
+  font-size: 1.5rem;
+  font-weight: 400;
+  line-height: 30px;
+  &-active {
+    font-weight: 700 !important;
+    transition: font-weight 0.3s ease-in-out;
+    color: var(--primary-color) !important;
+  }
+}

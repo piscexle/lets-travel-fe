@@ -1,0 +1,195 @@
+@import '@/styles/mixins.scss';
+
+.what-we-do {
+  max-width: 1210px;
+  margin: 0 auto;
+  .title {
+    display: grid;
+    grid-template-columns: 2fr 2fr;
+    grid-column-gap: 60px;
+
+    @media (max-width: $sm-min-width) {
+      display: flex;
+      flex-direction: column;
+    }
+
+    h3 {
+      color: #414141;
+      font-size: 4rem;
+      line-height: 44px;
+      margin-bottom: 15px;
+      font-weight: 700;
+
+      @media (max-width: $xs-min-width) {
+        font-size: 3rem;
+        line-height: 44px;
+      }
+    }
+  }
+
+  @media (max-width: 1210px) {
+    padding: 0 20px;
+  }
+  .content-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-column-gap: 60px;
+    @media (max-width: $sm-min-width) {
+      display: flex;
+      flex-direction: column;
+      box-shadow: 0px 0px 30px 0px #0000001a;
+      margin-bottom: 20px;
+      border-bottom-left-radius: 12px;
+      border-bottom-right-radius: 12px;
+    }
+    .box-image {
+      @media (max-width: $sm-min-width) {
+        margin-bottom: 15px;
+      }
+      .ant-image {
+        height: 300px;
+        width: 100%;
+        & img {
+          height: 100%;
+          width: 100%;
+          border-radius: 12px;
+          object-fit: cover;
+          @media (max-width: $sm-min-width) {
+            border-bottom-left-radius: 0px;
+            border-bottom-right-radius: 0px;
+          }
+        }
+      }
+    }
+
+    .box-content {
+      @media (max-width: $sm-min-width) {
+        padding: 10px;
+      }
+      .text-right {
+        h4 {
+          color: #414141;
+          font-size: 2rem;
+          line-height: 24px;
+          font-weight: 600;
+          margin-bottom: 10px;
+        }
+        .text-description {
+          color: #5e5b5b;
+          font-size: 1.6rem;
+          line-height: 24px;
+          font-weight: 400;
+          pre {
+            white-space: break-spaces;
+          }
+        }
+      }
+      .icon-left > .ant-image {
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+        }
+      }
+    }
+  }
+
+  &-slide {
+    @media (max-width: $sm-min-width) {
+      border-radius: 20px;
+      // box-shadow: 0px 0px 30px 0px #0000001a;
+    }
+    @media (max-width: $xs-min-width) {
+      box-shadow: 0px 0px 30px 0px #0000001a;
+    }
+    .image-left {
+      @media (max-width: $xs-min-width) {
+        margin-bottom: 15px;
+      }
+      .ant-image {
+        width: 100%;
+        img {
+          width: 100%;
+          object-fit: contain;
+          border-radius: 20px;
+          @media (max-width: $sm-min-width) {
+            height: 350px;
+            margin-bottom: 30px;
+          }
+        }
+      }
+    }
+    .container-slide-icon {
+      .ant-image {
+        img {
+          width: 32px;
+          height: 32px;
+          object-fit: cover;
+          margin-right: 10px;
+        }
+      }
+    }
+
+    h4 {
+      color: #414141;
+      font-size: 20px;
+      line-height: 24px;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+    .text-description {
+      color: #5e5b5b;
+      font-size: 1.6rem;
+      line-height: 24px;
+      font-weight: 400;
+      pre {
+        white-space: break-spaces;
+      }
+
+      // @media (max-width: $xs-min-width) {
+      //   margin: 0 -40px;
+      // }
+    }
+    .text-right {
+      @media (max-width: $sm-min-width) {
+        padding: 0 20px;
+      }
+    }
+    .item-text {
+      margin-bottom: 15px;
+    }
+
+    .ant-carousel {
+      height: 100%;
+      @media (min-width: $md-max-width) {
+        margin-right: 60px;
+      }
+      @media (max-width: $md-min-width) {
+        margin-right: 50px;
+      }
+      @media (max-width: $sm-min-width) {
+        margin-right: 0px;
+      }
+      .slick-slider,
+      .slick-list,
+      .slick-track,
+      .slick-slide {
+        height: 100%;
+        div {
+          height: 100%;
+          .ant-image {
+            height: 100%;
+            display: flex;
+            align-items: center;
+            img {
+              height: auto;
+            }
+          }
+        }
+      }
+    }
+  }
+}

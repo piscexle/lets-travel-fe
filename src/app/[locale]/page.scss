@@ -1,0 +1,802 @@
+@import '@/styles/mixins.scss';
+
+.wrapper-home-page {
+  // bannner
+  &-banner {
+    margin-top: 64px;
+    height: 500px;
+    position: relative;
+    width: 100%;
+
+    @media (max-width: $sm-min-width) {
+      height: 400px;
+    }
+    @media (max-width: $xs-min-width) {
+      height: 300px;
+    }
+    &-image {
+      position: absolute;
+      top: 0;
+      right: 0;
+      left: 0;
+      bottom: 0;
+
+      & img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+
+    .container {
+      height: 100%;
+    }
+
+    &-content {
+      height: 100%;
+      display: flex;
+      align-items: flex-start;
+      justify-content: center;
+      width: 500px;
+      flex-direction: column;
+      z-index: 9;
+
+      @media (max-width: $xl-max-width) {
+        width: 300px;
+      }
+    }
+
+    &-title {
+      width: 100%;
+      z-index: 9;
+      h3 {
+        font-size: 3rem;
+        line-height: 50px;
+        color: #fbfffb;
+        font-weight: 700;
+        @media (max-width: $sm-min-width) {
+          font-size: 2.5rem;
+          line-height: 40px;
+        }
+        @media (max-width: $xs-min-width) {
+          font-size: 2rem;
+          line-height: 30px;
+        }
+      }
+    }
+
+    &-description {
+      width: 100%;
+      margin: 20px 0;
+      z-index: 9;
+      h6 {
+        font-size: 1.7rem;
+        line-height: 24px;
+        color: #ffffff;
+        font-weight: 300;
+        @media (max-width: $sm-min-width) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+
+    &-button {
+      box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+      height: 60px !important;
+      display: flex !important;
+      align-items: center;
+      justify-content: center;
+
+      @media (max-width: $xs-min-width) {
+        padding: 10px;
+      }
+      p {
+        font-size: 2rem !important;
+        @media (max-width: $xs-min-width) {
+          font-size: 1.5rem;
+        }
+      }
+    }
+  }
+
+  // dịch vụ
+  &-services {
+    margin-top: 40px;
+    @media (max-width: $xs-max-width) {
+      margin-top: 30px;
+    }
+    &-item {
+      height: 250px;
+      padding: 24px;
+      border-radius: 20px;
+      display: flex;
+      align-items: center;
+      box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+
+      &-first {
+        height: 250px;
+        display: flex;
+        flex-direction: column;
+        row-gap: 12px;
+        padding: 24px;
+        h4 {
+          color: #5aaf32;
+          font-size: 2.6rem;
+          height: 54px;
+        }
+        h5 {
+          font-size: 2rem;
+          line-height: 30px;
+          font-weight: 600;
+          height: 90px;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          overflow: hidden;
+          -webkit-line-clamp: 3;
+          text-overflow: ellipsis;
+          display: -webkit-box;
+          -webkit-box-orient: vertical;
+          white-space: normal;
+        }
+      }
+
+      &-content {
+        width: 100%;
+        height: 100%;
+
+        .ant-flex {
+          &:first-child {
+            height: 54px;
+          }
+        }
+
+        h4 {
+          font-size: 2rem;
+          line-height: 30px;
+          font-weight: 600;
+        }
+
+        &-desc {
+          font-size: 1.5rem;
+          margin: 12px 0;
+          font-weight: 400;
+          height: 94px;
+        }
+      }
+
+      .ant-image {
+        width: 40px;
+        height: 40px;
+        & img {
+          width: 40px;
+          height: 40px;
+          object-fit: cover;
+        }
+      }
+
+      .ant-btn {
+        min-width: 60px;
+        height: 32px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 1.5px solid #5aaf32;
+        svg {
+          path {
+            fill: #5aaf32;
+          }
+        }
+      }
+
+      &:hover {
+        transition: all 0.5s;
+        background-color: #5aaf32;
+        h4,
+        .wrapper-home-page-services-item-content-desc {
+          color: #ffffff !important;
+        }
+
+        .ant-btn {
+          border: none;
+          svg {
+            path {
+              fill: #555;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // về chúng tôi
+  &-about-us {
+    margin: 40px auto;
+    height: 335px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    border-top-left-radius: 120px;
+    border-bottom-right-radius: 120px;
+    position: relative;
+
+    @media (max-width: $md-min-width) {
+      margin: 30px auto;
+    }
+
+    &-image {
+      object-fit: cover;
+      width: 100%;
+      border-top-left-radius: 120px;
+      border-bottom-right-radius: 120px;
+      height: 100%;
+    }
+
+    &-opacity-layer {
+      background-color: #5aaf32;
+      opacity: 0.85;
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 335px;
+      border-top-left-radius: 120px;
+      border-bottom-right-radius: 120px;
+
+      @media (max-width: $xs-max-width) {
+        border-top-left-radius: 70px;
+        border-bottom-right-radius: 70px;
+      }
+    }
+
+    &-carousel {
+      width: calc(100% - 320px);
+      position: absolute;
+      align-items: center;
+      margin: auto 0;
+
+      @media (max-width: $xs-max-width) {
+        width: 100%;
+      }
+
+      .ant-carousel {
+        .carousel-main {
+          .slick-dots {
+            height: 15px;
+            align-items: baseline;
+            bottom: 0px;
+            li,
+            li.slick-active {
+              width: 24px;
+              button {
+                width: 12px;
+                height: 12px;
+                border-radius: 50%;
+              }
+            }
+            .slick-active {
+              button {
+                background-color: #ffe450;
+              }
+            }
+          }
+        }
+      }
+
+      &-title {
+        color: #ffffff;
+        text-align: center;
+        font-size: 3.6rem;
+        line-height: 64px;
+        font-weight: 600;
+
+        @media (max-width: $xs-max-width) {
+          font-size: 3rem;
+        }
+      }
+
+      &-description {
+        display: flex;
+        justify-content: center;
+        color: #ffffff;
+        text-align: center;
+        font-size: 2rem;
+        font-weight: 300;
+        word-spacing: 2px;
+        text-align: justify;
+
+        @media (max-width: $xs-max-width) {
+          font-size: 1.6rem;
+        }
+      }
+
+      &-content {
+        padding: 0px 30px 42px 30px;
+
+        @media (max-width: $xs-max-width) {
+          padding: 0 15px 0px 15px;
+        }
+      }
+    }
+  }
+
+  // lĩnh vực
+
+  // khách hàng đánh giá
+  &-feedback {
+    .slick-slider {
+      overflow: hidden;
+    }
+
+    @media screen and (min-width: 600px) {
+      .slick-list {
+        margin: 0 -10px;
+      }
+
+      .slick-list {
+        padding-top: 24px !important;
+        padding-bottom: 32px !important;
+        box-sizing: initial;
+        overflow: visible;
+      }
+
+      .slick-slide {
+        padding: 0 10px;
+        height: 100%;
+      }
+    }
+
+    &-item {
+      cursor: pointer;
+      background-color: #ffffff;
+
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 16px;
+      box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+
+      border-radius: 20px;
+      height: 270px;
+
+      @media screen and (max-width: $xs-max-width) {
+        box-shadow: none;
+        border: 1.2px solid #f0f0f0;
+      }
+
+      .ant-image {
+        width: 50px;
+        height: 50px;
+        & img {
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          border: 1px solid #bfbfbf;
+        }
+      }
+      .feedback-rate-start {
+        width: 100%;
+        .ant-rate .ant-rate-star-first,
+        .ant-rate .ant-rate-star-second {
+          color: #fadb14;
+        }
+        ul {
+          padding: 4px 8px;
+          border: 1px solid #5aaf32;
+          border-radius: 20px;
+        }
+      }
+      .customer-name {
+        font-size: 2rem;
+        line-height: 34px;
+        color: #000;
+        font-weight: 600;
+      }
+      h4 {
+        font-size: 2rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #5aaf32;
+        height: 50px;
+      }
+      .customer-message {
+        font-size: 1.5rem;
+        line-height: 20px;
+        font-weight: 400;
+        height: 60px;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        -webkit-line-clamp: 3;
+        text-overflow: ellipsis;
+        display: -webkit-box;
+        -webkit-box-orient: vertical;
+        white-space: normal;
+      }
+    }
+  }
+
+  // tổng quan
+  &-overview {
+    margin-bottom: 30px;
+    .quick-fact {
+      max-width: 966px;
+      box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+      border-radius: 20px;
+      padding: 48px 68px;
+      @media (max-width: $md-min-width) {
+        padding: 30px;
+      }
+      @media (max-width: $xs-min-width) {
+        padding: 25px;
+      }
+      .overview-title {
+        width: 100%;
+        position: relative;
+        h3 {
+          font-size: 4rem;
+          line-height: 50px;
+          font-weight: 700;
+          color: #33363f;
+          text-align: center;
+          text-transform: uppercase;
+
+          @media (max-width: $sm-min-width) {
+            font-size: 3.5rem;
+          }
+          @media (max-width: $xs-min-width) {
+            font-size: 3rem;
+          }
+        }
+        .overview-year {
+          position: absolute;
+          right: 0;
+          top: 50%;
+          transform: translateY(-50%);
+          color: #ff0000;
+          font-size: 1.5rem;
+          line-height: 34px;
+          font-weight: 400;
+          @media (max-width: $sm-min-width) {
+            font-size: 1.2rem;
+          }
+          @media (max-width: $xs-min-width) {
+            display: none;
+            position: relative;
+          }
+        }
+        .responsive-overview-year {
+          display: none;
+          color: #ff0000;
+          font-size: 1.5rem;
+          line-height: 34px;
+          font-weight: 400;
+          @media (max-width: $xs-min-width) {
+            display: block;
+            text-align: center;
+          }
+        }
+      }
+
+      .text-color {
+        margin: 35px 0;
+        display: flex;
+        justify-content: space-between;
+        column-gap: 22px;
+        gap: 20px;
+
+        @media (max-width: $sm-min-width) {
+          margin: 15px 0;
+          justify-content: center;
+          flex-wrap: wrap;
+          gap: 4px;
+        }
+
+        .count-up {
+          span {
+            display: inline-block;
+            width: 44px;
+            text-align: center;
+          }
+
+          &-client {
+            width: 52px;
+          }
+        }
+
+        .text-card {
+          font-size: 3rem;
+          line-height: 56px;
+          font-weight: 700;
+          display: flex;
+          flex-direction: row;
+          flex-wrap: nowrap;
+          align-items: center;
+          @media (max-width: $xs-min-width) {
+            font-size: 2.5rem;
+          }
+        }
+        .text-red {
+          color: #ff0c0c;
+        }
+        .text-green {
+          color: #33890a;
+        }
+        .text-yellow {
+          color: #ecc805;
+        }
+        .text-blue {
+          color: #3305ec;
+        }
+      }
+      .text-intro {
+        font-size: 1.5rem;
+        line-height: 34px;
+        text-align: center;
+        font-weight: 400;
+        text-transform: capitalize;
+      }
+    }
+  }
+
+  // tin tức
+
+  &-news {
+    margin-bottom: 30px;
+    @media (max-width: $xs-min-width) {
+      margin-bottom: 16px;
+    }
+    &-container {
+      width: 100%;
+      .row-home-news-container {
+        row-gap: 30px;
+        @media (max-width: $xs-min-width) {
+          flex-direction: column-reverse;
+        }
+      }
+      .home-news-item {
+        width: 100%;
+        border-radius: 20px;
+        box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+        padding-right: 4px;
+        cursor: pointer;
+
+        .item-image {
+          width: 100%;
+          height: 120px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-top-left-radius: 20px;
+            border-bottom-left-radius: 20px;
+          }
+        }
+        .item-content {
+          width: 100%;
+          height: 100%;
+          column-gap: 5px;
+          display: flex;
+          flex-direction: column;
+          align-items: flex-start;
+          justify-content: center;
+          h3 {
+            font-size: 1.5rem;
+            line-height: 26px;
+            font-weight: 700;
+            color: #5aaf32;
+            @media (max-width: $md-min-width) {
+              font-size: 1.4rem;
+            }
+            @media (max-width: $sm-min-width) {
+              font-size: 1.3rem;
+              line-height: 24px;
+            }
+            @media (max-width: $xs-min-width) {
+              font-size: 1.5rem;
+              line-height: 24px;
+            }
+          }
+          &-desc {
+            font-size: 1.2rem;
+            line-height: 20px;
+            font-weight: 400;
+            margin-bottom: 0;
+          }
+        }
+      }
+      .home-news-btn {
+        border: 1px solid #ff9900;
+        box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+        color: #ff9900;
+        font-size: 1.5rem;
+      }
+      .news-normal {
+        display: flex;
+        flex-direction: column;
+        row-gap: 20px;
+      }
+      .news-outstanding {
+        height: initial;
+        @media (max-width: $xs-min-width) {
+          height: max-content;
+        }
+        &-content {
+          cursor: pointer;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          border-radius: 15px;
+          box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+          .outstanding-image {
+            width: 100%;
+            height: 50%;
+            @media (max-width: $sm-min-width) {
+              height: 200px;
+            }
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: cover;
+              border-radius: 20px 20px 0 0;
+            }
+          }
+          .outstanding-desc {
+            margin-left: 15px;
+            p {
+              font-size: 1.2rem;
+              line-height: 20px;
+              font-weight: 400;
+              margin-bottom: 0;
+            }
+          }
+          h3 {
+            font-size: 1.5rem;
+            line-height: 34px;
+            font-weight: 700;
+            color: #5aaf32;
+            margin-left: 15px;
+            @media (max-width: $md-min-width) {
+              font-size: 1.4rem;
+            }
+            @media (max-width: $sm-min-width) {
+              font-size: 1.3rem;
+              line-height: 24px;
+            }
+            @media (max-width: $xs-min-width) {
+              font-size: 1.5rem;
+              line-height: 24px;
+            }
+          }
+        }
+        &-less {
+          cursor: pointer;
+          height: 100%;
+          display: flex;
+          flex-direction: column;
+          row-gap: 10px;
+          border-radius: 15px;
+          box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+          .ant-row {
+            height: 100%;
+          }
+          .outstanding-image {
+            width: 100%;
+            height: 100%;
+            img {
+              width: 100%;
+              height: 100%;
+              object-fit: fill;
+              border-radius: 20px 20px 0 0;
+            }
+          }
+          .outstanding-desc {
+            padding: 15px;
+            p {
+              font-size: 1.2rem;
+              line-height: 20px;
+              font-weight: 400;
+              margin-bottom: 0;
+            }
+            h3 {
+              font-size: 1.5rem;
+              line-height: 34px;
+              font-weight: 700;
+              color: #5aaf32;
+              @media (max-width: $md-min-width) {
+                font-size: 1.4rem;
+              }
+              @media (max-width: $sm-min-width) {
+                font-size: 1.3rem;
+                line-height: 24px;
+              }
+              @media (max-width: $xs-min-width) {
+                font-size: 1.5rem;
+                line-height: 24px;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // liên hệ
+  &-contact-us {
+    .contact-info {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 40px auto;
+      width: 900px;
+      padding: 30px 100px;
+      border: 1px solid #33890a;
+      border-radius: 16px;
+      box-shadow: 0px 4px 4px 0px #ffe450;
+      @media (max-width: 900px) {
+        width: 100%;
+        padding: 20px 10px;
+      }
+      @media (max-width: $xs-min-width) {
+        margin-top: 0px;
+      }
+
+      .text-desc {
+        font-size: 2rem;
+        line-height: 24px;
+        color: #33890a;
+        font-weight: 300;
+        margin-top: 40px;
+        text-align: center;
+      }
+      .container-info {
+        h3 {
+          font-size: 4rem;
+          font-weight: 700;
+          line-height: 68px;
+          color: #000;
+          margin-bottom: 26px;
+
+          @media (max-width: $sm-min-width) {
+            font-size: 3.5rem;
+            line-height: 50px;
+          }
+        }
+        .text-info {
+          width: 535px;
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          grid-column-gap: 50px;
+          @media (max-width: 535px) {
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+          }
+          p {
+            font-size: 1.8rem;
+            line-height: 24px;
+            color: #000;
+          }
+          a {
+            font-size: 1.8rem;
+            line-height: 24px;
+            color: #000;
+          }
+          span {
+            margin-right: 15px;
+          }
+          .text-margin {
+            margin-bottom: 25px;
+          }
+
+          .block-mobile {
+            @media (max-width: $xs-min-width) {
+              margin-bottom: 25px;
+            }
+          }
+        }
+      }
+    }
+  }
+}

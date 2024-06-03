@@ -1,0 +1,154 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+// file này sau này sẽ bỏ vào thư mục profile
+
+.wrapper-profile {
+  padding: 64px 16px 32px;
+
+  @media (max-width: $xs-max-width) {
+    padding: 34px 8px 32px;
+  }
+
+  &-header {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    &-avatar {
+      position: relative;
+      width: 126px;
+      height: 126px;
+      margin-bottom: 16px;
+      img {
+        object-fit: cover;
+        border-radius: 50%;
+      }
+    }
+
+    &-name {
+      margin: 0px;
+      color: #000000;
+      font-weight: 700;
+      font-size: 2.8rem;
+      line-height: 1.5;
+      text-overflow: ellipsis;
+      max-width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      margin-bottom: 8px;
+
+      &-tien-long {
+        text-align: center;
+      }
+    }
+
+    &-company {
+      color: #4f535d;
+      font-size: 2.4rem;
+      line-height: 28px;
+      text-align: center;
+
+      @media (max-width: $xs-max-width) {
+        font-size: 1.8rem;
+      }
+    }
+
+    &-desc {
+      color: #6b7280;
+      font-size: 2.2rem;
+      text-transform: uppercase;
+      margin-bottom: 24px;
+
+      &-customize {
+        text-transform: none !important;
+      }
+    }
+  }
+
+  &-contact {
+    margin-bottom: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 12px;
+
+    &-title {
+      color: #000000;
+      font-weight: 700;
+      font-size: 2.8rem;
+    }
+
+    &-action {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 12px;
+
+      button {
+        width: 220px;
+        outline: none;
+        border: none;
+        border-radius: 16px;
+        padding: 20px;
+        background-color: #5aaf32;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+        color: #ffffff;
+        font-size: 2.2rem;
+
+        @media (max-width: $xs-max-width) {
+          width: 160px;
+          font-size: 1.6rem;
+          padding: 16px 8px;
+        }
+
+        span {
+          &:first-child {
+            font-size: 3rem;
+            margin-top: -12px;
+
+            @media (max-width: $xs-max-width) {
+              font-size: 2rem;
+              margin-top: -6px;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.container-link-tree {
+  padding: 0 12px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+@media (min-width: $xs-min-width) {
+  .container-link-tree {
+    width: 540px;
+  }
+}
+
+@media (min-width: $sm-min-width) {
+  .container-link-tree {
+    width: 680px;
+  }
+}
+
+@media (min-width: $md-min-width) {
+  .container-link-tree {
+    width: 680px;
+  }
+}
+
+@media (min-width: $xl-min-width) {
+  .container-link-tree {
+    width: 880px;
+  }
+}
