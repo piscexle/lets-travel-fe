@@ -6,7 +6,7 @@
     "name": "Le Tram design and development"
   },
   "scripts": {
-    "dev": "set NODE_OPTIONS=\"--max_old_space_size=4096\" && next dev",
+    "dev": "set NODE_OPTIONS=\"--max_old_space_size=4099\" && next dev",
     "build": "next build",
     "start": "next start -p 4017",
     "lint": "next lint",
