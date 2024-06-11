@@ -49,6 +49,7 @@ export interface AuthState {
   };
   error: string;
   loading: boolean;
+  typeLogin: string;
 }
 
 export interface ResetPasswordModel {

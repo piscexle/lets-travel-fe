@@ -21,29 +21,29 @@ const FontBeVietNamPro = Be_Vietnam_Pro({
 
 const theme: ThemeConfig = {
   token: {
-    colorPrimary: '#5aaf32',
+    colorPrimary: '#FFCB45',
     fontFamily: FontBeVietNamPro.style.fontFamily,
   },
   components: {
     Button: {
-      colorPrimary: '#5aaf32',
-      colorPrimaryHover: '#5aaf32',
+      colorPrimary: '#FFCB45',
+      colorPrimaryHover: '#FFFFFF',
       colorPrimaryActive: '#3C3F4B',
-      colorLinkHover: '5aaf32',
-      borderRadius: 20,
+      colorLinkHover: '#FFCB45',
+      borderRadius: 10,
     },
     Input: {
-      activeBorderColor: '#5aaf32',
-      hoverBorderColor: '#5aaf32',
+      activeBorderColor: '#FFCB45',
+      hoverBorderColor: '#FFCB45',
     },
     Tabs: {
-      itemHoverColor: '#5aaf32',
-      itemSelectedColor: '#5aaf32',
-      itemActiveColor: '#5aaf32',
-      inkBarColor: '#5aaf32',
+      itemHoverColor: '#FFFFFF',
+      itemSelectedColor: '#FFCB45',
+      itemActiveColor: '#FFCB45',
+      inkBarColor: '#FFCB45',
     },
     Spin: {
-      colorPrimary: '#5aaf32',
+      colorPrimary: '#FFCB45',
     },
     Table: {
       cellPaddingInline: 8,

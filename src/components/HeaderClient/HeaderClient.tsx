@@ -1,19 +1,27 @@
 'use client';
 
-import { MenuOutlined } from '@ant-design/icons';
-import NextImage from 'next/image';
-import { Button, Col, Drawer, Flex, Image, Menu, Row } from 'antd';
+import { DownOutlined, LoginOutlined, MenuOutlined } from '@ant-design/icons';
+import Image from 'next/image';
+import Link from 'next/link';
+import { Button, Col, Drawer, Flex, Menu, Popover, Row, Space } from 'antd';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
 import csx from 'classnames';
 import { useLocale, useTranslations } from 'next-intl';
-import { Link, useRouter as NextRouter } from '@/navigation';
+import { useRouter as NextRouter } from '@/navigation';
 import './header.scss';
-import AboutUsIcon from '@/icons/AboutUsIcon';
-import StructureIcon from '@/icons/StructureIcon';
-import { useAppDispatch } from '@/store';
+import { useAppDispatch, useAppSelector } from '@/store';
 import { getInfoBusiness } from '@/store/business/business.action';
+import { createRGBDataURL } from '@/utils/createRGBDataURL';
+import FlyIcon from '@/icons/FlyIcon';
+import HomeIcon from '@/icons/HomeIcon';
+import { AppConfirmModalEnum, NotificationTypeEnum } from '@/config/constant';
+import { setTokenAuth, setUserAuth } from '@/store/auth/auth.reducer';
+import { createToast } from '@/store/notification/notification.reducer';
+import { v4 as uuidv4 } from 'uuid';
+import { signOut } from 'next-auth/react';
 import SelectLanguage from '../SelectLanguage/SelectLanguage';
+import AppConfirmModal from '../AppConfirmModal/AppConfirmModal';
 
 const HeaderClient = () => {
   const dispatch = useAppDispatch();
@@ -24,6 +32,9 @@ const HeaderClient = () => {
   const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const locale = useLocale();
+  const [info, setInfo] = useState<any>({});
+  const { user, token, typeLogin } = useAppSelector((state) => state.authSlice);
+  const [showConfirmLogoutVisible, setShowConfirmLogoutVisible] = useState<boolean>(false);
 
   useEffect(() => {
     dispatch(getInfoBusiness());
@@ -45,10 +56,33 @@ const HeaderClient = () => {
     }
   };
 
+  const onLogoutClicked = () => {
+    setShowConfirmLogoutVisible(true);
+  };
+
+  useEffect(() => {
+    if (Object.values(token).every((value) => value !== '')) {
+      setInfo({
+        ...user,
+        ...token,
+      });
+    } else {
+      setInfo({});
+    }
+  }, [user, token]);
+
   const menuItems = useMemo(
     () => [
       {
-        label: t('itemIntroduce'),
+        label: <Link href="/">{t('itemHome')}</Link>,
+        key: `/${locale}`,
+      },
+      {
+        label: (
+          <span>
+            {t('serviceHome')} <DownOutlined />
+          </span>
+        ),
         key: '/introduce',
         onClick: () => {
           setOpen(false);
@@ -56,9 +90,9 @@ const HeaderClient = () => {
         },
         children: [
           {
-            label: <span className="item-introduce">{t('teamHome')}</span>,
+            label: <span className="item-introduce">{t('itemTransport')}</span>,
             key: 'about-us',
-            icon: <AboutUsIcon />,
+            icon: <FlyIcon />,
             onClick: () => {
               setOpen(false);
               // setCurrent('/introduce');
@@ -66,9 +100,9 @@ const HeaderClient = () => {
             },
           },
           {
-            label: <span className="item-introduce">{t('itemStructure')}</span>,
+            label: <span className="item-introduce">{t('itemStay')}</span>,
             key: 'structure',
-            icon: <StructureIcon />,
+            icon: <HomeIcon />,
             onClick: () => {
               setOpen(false);
               // setCurrent('/introduce');
@@ -78,15 +112,15 @@ const HeaderClient = () => {
         ],
       },
       {
-        label: <Link href="/news">{t('itemNews')}</Link>,
+        label: <Link href="/news">{t('itemExperiences')}</Link>,
         key: `/${locale}/news`,
       },
       {
-        label: <Link href="/projects">{t('workHome')}</Link>,
+        label: <Link href="/projects">{t('itemPlaceToStay')}</Link>,
         key: `/${locale}/projects`,
       },
       {
-        label: <Link href="/career">{t('careerHome')}</Link>,
+        label: <Link href="/career">{t('contactHome')}</Link>,
         key: `/${locale}/career`,
       },
     ],
@@ -105,11 +139,11 @@ const HeaderClient = () => {
           >
             <Flex align="center" className="h-100">
               <Link href="/">
-                <NextImage
+                <Image
                   className="nav-header-logo"
-                  src="/images/pnl-logo.png"
+                  src="/images/logo.svg"
                   alt="logo"
-                  width={77}
+                  width={162}
                   height={77}
                   quality={100}
                 />
@@ -138,7 +172,6 @@ const HeaderClient = () => {
                 <Drawer
                   title={
                     <Image
-                      preview={false}
                       width={50}
                       height={50}
                       src="/images/pnl-logo.png"
@@ -166,9 +199,139 @@ const HeaderClient = () => {
                   }}
                 />
               </div>
+              <div>
+                {info.accessToken ? (
+                  <Popover
+                    content={
+                      <Space direction="vertical">
+                        <Button
+                          href="/profile?page=my-details"
+                          type="link"
+                          style={{ width: '180px', color: '#066156' }}
+                        >
+                          {t('itemProfile')}
+                        </Button>
+
+                        <Button
+                          onClick={() => onLogoutClicked()}
+                          type="primary"
+                          style={{ width: '180px' }}
+                        >
+                          {t('itemLogout')}
+                        </Button>
+                      </Space>
+                    }
+                  >
+                    <Space>
+                      <div>
+                        <Image
+                          src={user?.avatar ? user.avatar : '/images/avatar.jpg'}
+                          alt="Lets travel"
+                          fill
+                          placeholder="blur"
+                          blurDataURL={createRGBDataURL(199, 199, 199)}
+                          sizes="100%"
+                        />
+                      </div>
+                      <p>{info?.lastName || 'kẻ mộng mơ'}</p>
+                    </Space>
+                  </Popover>
+                ) : (
+                  <Link href="/dang-nhap">
+                    <Space>
+                      <Button className="btn-login">
+                        <LoginOutlined /> {t('itemLogin')}
+                      </Button>
+                    </Space>
+                  </Link>
+                )}
+              </div>
             </div>
           </Col>
         </Row>
+        <AppConfirmModal
+          isVisible={showConfirmLogoutVisible}
+          type={AppConfirmModalEnum.warning}
+          title={t('itemLogout')}
+          okTextButton={t('itemLogout')}
+          onCancel={() => {
+            setShowConfirmLogoutVisible(false);
+          }}
+          onOk={async () => {
+            if (typeLogin === 'google') {
+              signOut({ redirect: false }).then(async () => {
+                const dispatchPromises = [
+                  // dispatch(clearShoppingCart()),
+                  (window.location.href = '/'),
+                  dispatch(
+                    setTokenAuth({
+                      expiresIn: 0,
+                      accessToken: '',
+                      refreshToken: '',
+                    })
+                  ),
+                  dispatch(
+                    setUserAuth({
+                      id: '',
+                      createdAt: '',
+                      updatedAt: '',
+                      deletedAt: null,
+                      role: '',
+                      email: '',
+                      firstName: null,
+                      lastName: null,
+                      avatar: '',
+                      phoneNumber: '',
+                    })
+                  ),
+                ];
+
+                await Promise.all([...dispatchPromises]);
+              });
+            } else {
+              await dispatch(
+                setUserAuth({
+                  id: '',
+                  createdAt: '',
+                  updatedAt: '',
+                  deletedAt: null,
+                  role: '',
+                  email: '',
+                  firstName: null,
+                  lastName: null,
+                  avatar: '',
+                  phoneNumber: '',
+                  // permission: {
+                  //   id: '',
+                  //   createdAt: '',
+                  //   updatedAt: '',
+                  //   deletedAt: '',
+                  //   groupName: '',
+                  //   permission: [],
+                  //   users: [],
+                  // },
+                })
+              );
+              await dispatch(
+                setTokenAuth({
+                  expiresIn: 0,
+                  accessToken: '',
+                  refreshToken: '',
+                })
+              );
+              await dispatch(
+                createToast({
+                  id: uuidv4(),
+                  status: NotificationTypeEnum.success,
+                  message: 'Đăng xuất thành công',
+                  description: '',
+                })
+              );
+              setShowConfirmLogoutVisible(false);
+              router.push('/', { scroll: false });
+            }
+          }}
+        />
       </div>
     </header>
   );

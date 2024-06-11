@@ -12,22 +12,11 @@ interface IProps {
   content?: React.ReactNode;
   onOk: () => void;
   onCancel: () => void;
-  setIsVisible: (v: boolean) => void;
 }
 
 const AppConfirmModal = (props: IProps) => {
-  const {
-    isVisible,
-    type,
-    title,
-    name,
-    content,
-    okTextButton,
-    cancelTextButton,
-    onOk,
-    onCancel,
-    setIsVisible,
-  } = props;
+  const { isVisible, type, title, name, content, okTextButton, cancelTextButton, onOk, onCancel } =
+    props;
 
   const getTitle = () => {
     if (title) return title;
@@ -51,16 +40,7 @@ const AppConfirmModal = (props: IProps) => {
       case AppConfirmModalEnum.delete:
         return (
           <div>
-            Bạn có muốn xóa
-            {' '}
-            <span style={{ color: 'red' }}>
-              {' '}
-              {name || 'dữ liệu'}
-              {' '}
-            </span>
-            {' '}
-            này
-            không ?
+            Bạn có muốn xóa <span style={{ color: 'red' }}> {name || 'dữ liệu'} </span> này không ?
           </div>
         );
       case AppConfirmModalEnum.confirm:
@@ -75,12 +55,10 @@ const AppConfirmModal = (props: IProps) => {
   };
 
   const onOkClicked = () => {
-    setIsVisible(false);
     onOk();
   };
 
   const onCancelClicked = () => {
-    setIsVisible(false);
     onCancel();
   };
 
@@ -95,13 +73,7 @@ const AppConfirmModal = (props: IProps) => {
         <Button key="cancel" onClick={() => onCancelClicked()}>
           {cancelTextButton || 'Huỷ'}
         </Button>,
-        <Button
-          key="submit"
-          type="primary"
-          loading={false}
-          onClick={() => onOkClicked()}
-          danger
-        >
+        <Button key="submit" type="primary" loading={false} onClick={() => onOkClicked()} danger>
           {okTextButton || 'Ok'}
         </Button>,
       ]}
@@ -109,7 +81,7 @@ const AppConfirmModal = (props: IProps) => {
       {getContent()}
     </Modal>
   );
-}
+};
 
 AppConfirmModal.defaultProps = {
   title: '',

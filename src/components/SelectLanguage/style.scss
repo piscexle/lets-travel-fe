@@ -12,7 +12,7 @@
   height: 100%;
   display: flex;
   align-items: center;
-  margin-left: 30px;
+  margin: 0 30px;
   .ant-image {
     height: 28px;
     width: 40px;
@@ -41,5 +41,14 @@
     font-weight: 700 !important;
     transition: font-weight 0.3s ease-in-out;
     color: var(--primary-color) !important;
+  }
+}
+
+.btn-language {
+  padding: 10px;
+
+  &:hover {
+    cursor: pointer;
+    background-color: #f2f2f2;
   }
 }

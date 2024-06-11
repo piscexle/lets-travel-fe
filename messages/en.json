@@ -1,7 +1,11 @@
 {
   "common": {
     "itemHome": "Home",
-    "serviceHome": "Service",
+    "serviceHome": "Services",
+    "itemTransport": "Transports",
+    "itemStay": "Stay",
+    "itemExperiences": "Experiences",
+    "itemPlaceToStay": "Place to stay",
     "workHome": "Project",
     "customerHome": "Our Customer",
     "teamHome": "About Us",
@@ -28,7 +32,7 @@
     "titleMission": "Mission",
     "titleCoreValues": "Core values",
     "titleDevelopmentHistory": "Development history",
-    "contentVision": "Technology creates numerous new opportunities for connecting with customers, partners, and communities. PNL is committed to continuous innovation, meeting trends, enhancing user experiences, and fostering the development of small and medium-sized enterprises.",
+    "contentVision": "Technology creates numerous new opportunities for connecting with customers, partners, and communities. Let's travel is committed to continuous innovation, meeting trends, enhancing user experiences, and fostering the development of small and medium-sized enterprises.",
     "contentMission": "Our mission is to shape a smarter digital future by providing advanced software solutions. We pledge to support businesses and organizations in digital transformation, optimizing efficiency, and creating sustainable value for the community and society.",
     "contentCoreValues": "With 5 core values of Innovation - Quality - Customer Interaction and Support - Solution Delivery - Sustainability. We harness creativity to deliver top-quality software solutions, sincerely interact with customers, deliver effective solutions, and contribute to the sustainable development of the community and society.",
     "contentDevelopmentHistory": "Starting from a freelance team, we rely on the quality of work to build reputation and create a network of customers and partners. Investing in learning and enhancing personal as well as team skills to meet the higher demands of projects, thus achieving success for customers and partners.",
@@ -88,6 +92,11 @@
     "itemBtnCancel": "Cancel",
     "itemBtnTryAgain": "Try again",
     "itemFirstCardServiceHome": "Build and develop a long-term brand, bringing your business's online dream home.",
-    "notiFail": "An error occurred, please check again."
+    "notiFail": "An error occurred, please check again.",
+    "itemLogout": "Log out",
+    "itemLogin": "Log in",
+    "itemProfile": "My profile",
+    "titleVN": "Vietnamese",
+    "titleEN": "England"
   }
 }

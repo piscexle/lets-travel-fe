@@ -2,7 +2,10 @@
   "common": {
     "itemHome": "Trang chủ",
     "serviceHome": "Dịch vụ",
-    "workHome": "Dự án",
+    "itemTransport": "Phương tiện di chuyển",
+    "itemStay": "Nơi ở",
+    "itemExperiences": "Kinh nghiệm",
+    "itemPlaceToStay": "Nơi dừng chân",
     "customerHome": "Khách hàng của chúng tôi",
     "teamHome": "Về chúng tôi",
     "careerHome": "Tuyển dụng",
@@ -86,6 +89,11 @@
     "itemSystemTitle": "Hệ thống",
     "itemBtnCancel": "Hủy",
     "itemBtnTryAgain": "Thử lại",
-    "itemFirstCardServiceHome": "Xây dựng và phát triển thương hiệu dài hạn, mang lại ngôi nhà mơ ước trực tuyến của doanh nghiệp bạn."
+    "itemFirstCardServiceHome": "Xây dựng và phát triển thương hiệu dài hạn, mang lại ngôi nhà mơ ước trực tuyến của doanh nghiệp bạn.",
+    "itemLogout": "Đăng xuất",
+    "itemLogin": "Đăng nhập",
+    "itemProfile": "Thông tin cá nhân",
+    "titleVN": "Tiếng Việt",
+    "titleEN": "Tiếng Anh"
   }
 }

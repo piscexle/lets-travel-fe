@@ -22,6 +22,7 @@ const initialState: AuthState = {
   },
   error: '',
   loading: false,
+  typeLogin: '',
 };
 
 const authSlice = createSlice({
@@ -39,6 +40,14 @@ const authSlice = createSlice({
     setErrorAuth: (state: AuthState, action: any) => ({
       ...state,
       error: action.payload,
+    }),
+    setIsModalAuthVisible: (state: AuthState, action: PayloadAction<boolean>) => ({
+      ...state,
+      isModalAuthVisible: action.payload,
+    }),
+    setTypeLogin: (state: AuthState, action: PayloadAction<any>) => ({
+      ...state,
+      typeLogin: action.payload,
     }),
   },
 
@@ -111,6 +120,10 @@ const authSlice = createSlice({
   },
 });
 
-export const { setTokenAuth, setUserAuth, setErrorAuth } = authSlice.actions;
+export const { setTokenAuth,
+  setUserAuth,
+  setErrorAuth,
+  setIsModalAuthVisible,
+  setTypeLogin, } = authSlice.actions;
 
 export default authSlice.reducer;
