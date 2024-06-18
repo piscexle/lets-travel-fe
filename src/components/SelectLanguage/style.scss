@@ -13,6 +13,10 @@
   display: flex;
   align-items: center;
   margin: 0 30px;
+
+  @media (max-width: $xl-max-width) {
+    margin: 0 10px;
+  }
   .ant-image {
     height: 28px;
     width: 40px;

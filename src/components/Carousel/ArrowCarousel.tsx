@@ -1,37 +1,37 @@
-import React from 'react';
 import { LeftOutlined, RightOutlined } from '@ant-design/icons';
 import './style.scss';
+import React from 'react';
 
 interface ArrowProps {
   className?: string;
-  style?: React.CSSProperties;
+  // style?: React.CSSProperties;
   onClick?: () => void;
 }
 
 const NextArrow: React.FC<ArrowProps> = (props) => {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <div
-      aria-hidden="true"
       className={`wrapper-arrow-carousel ${className}`}
-      style={{ ...style }}
+      style={{ display: onClick ? 'block' : 'none' }}
+      aria-hidden="true"
       onClick={onClick}
     >
-      <RightOutlined />
+      <RightOutlined tabIndex={-1} />
     </div>
   );
 };
 
 const PrevArrow: React.FC<ArrowProps> = (props) => {
-  const { className, style, onClick } = props;
+  const { className, onClick } = props;
   return (
     <div
-      aria-hidden="true"
       className={`wrapper-arrow-carousel ${className}`}
-      style={{ ...style }}
+      style={{ display: onClick ? 'block' : 'none' }}
+      aria-hidden="true"
       onClick={onClick}
     >
-      <LeftOutlined />
+      <LeftOutlined tabIndex={-1} />
     </div>
   );
 };

@@ -157,6 +157,12 @@ const FooterClient = () => {
           </Row>
         </div>
       </div>
+      <div className="wrapper-footer-all-right">
+        <p>
+          Copyright @ 2024 Lets travel - Designed and developed by <a href="/">IC Technology</a>.
+          All Rights Reserved
+        </p>
+      </div>
     </footer>
   );
 };

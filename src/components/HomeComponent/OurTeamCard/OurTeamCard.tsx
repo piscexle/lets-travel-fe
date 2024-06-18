@@ -62,7 +62,7 @@ const OurTeamCardComponent = ({ id }: { id: string }) => {
               <Image
                 width={150}
                 height={150}
-                src={item.avatar.includes('http') ? item.avatar : '/images/pnl-logo.png'}
+                src={item.avatar.includes('http') ? item.avatar : '/images/logo.svg'}
                 alt={item.name as string}
                 quality={100}
               />

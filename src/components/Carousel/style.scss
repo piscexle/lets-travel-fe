@@ -1,13 +1,89 @@
-.carousel-title-item {
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.carousel-content {
+  position: absolute;
+  top: 35%;
+  width: 100%;
   text-align: center;
-  font-weight: 600;
-  padding: 12px 0;
+  &-title-item {
+    width: 100%;
+    h3 {
+      font-size: 10rem;
+      text-transform: uppercase;
+      line-height: 100px;
+      color: #fbfffb;
+      font-weight: 700;
+      @media (max-width: $sm-min-width) {
+        font-size: 5.5rem;
+        line-height: 40px;
+      }
+      @media (max-width: $xs-min-width) {
+        font-size: 5rem;
+        line-height: 30px;
+      }
+    }
+  }
+  
+  &-description-item {
+    margin: 20px 400px;
+    h6 {
+      font-size: 1.7rem;
+      line-height: 24px;
+      color: #ffffff;
+      font-weight: 300;
+      @media (max-width: $sm-max-width) {
+        font-size: 1.5rem;
+      }
+    }
+    @media (max-width: $xl-max-width) {
+      margin: 20px 200px;
+    }
+    @media (max-width: $md-max-width) {
+      margin: 20px 100px;
+    }
+    @media (max-width: $sm-max-width) {
+      margin: 20px 10px;
+    }
+  }
+  &-button-item {
+    box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
+    display: flex !important;
+    align-items: center;
+    justify-content: center;
+
+    span {
+      font-size: 1.6rem;
+      @media (max-width: $sm-max-width) {
+        font-size: 1.2rem;
+      }
+    }
+  }
 }
 
 .wrapper-arrow-carousel {
-  background-color: #757575;
-  svg {
-    font-size: 2.4rem;
-    color: white;
+  align-items: center !important;
+  justify-content: center !important;
+  z-index: 9 !important;
+  span {
+    svg {
+      width: 32px !important;
+      height: 32px !important;
+      color: #61677a;
+    }
+  }
+
+  &.slick-prev {
+    left: -50px !important;
+  }
+
+  &.slick-next {
+    right: -50px !important;
+  }
+}
+
+@media (max-width: $xs-min-width) {
+  .wrapper-arrow-carousel {
+    display: none !important;
   }
 }

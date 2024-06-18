@@ -35,85 +35,43 @@
     align-items: center;
     justify-content: center;
 
-    &-title {
+    &-item {
       position: relative;
       width: 100%;
       @media (max-width: 1210px) {
         width: 95vw;
       }
-      h1 {
-        letter-spacing: 3px;
-        opacity: 0.8;
-        z-index: 9;
+      &-title {
         width: 100%;
-        top: 50%;
-        text-align: center;
-        font-size: 8rem;
-        color: #ffffff;
-        font-weight: 700;
-        text-transform: uppercase;
-
-        @media (max-width: $xl-min-width) {
-          font-size: 8rem;
-        }
-        @media (max-width: $xl-max-width) {
-          font-size: 7rem;
-        }
-        @media (max-width: $md-max-width) {
-          font-size: 7rem;
-        }
-        @media (max-width: $sm-min-width) {
-          font-size: 7rem;
-        }
-        @media (max-width: ($sm-min-width - 68px)) {
-          font-size: 5.5rem;
-        }
-        @media (max-width: $xs-max-width) {
-          font-size: var(--fs-header-primary);
-        }
-        @media (max-width: $xs-max-width-large) {
-          font-size: 2.6rem;
-        }
-        @media (max-width: $xs-max-width-medium) {
-          font-size: 2.5rem;
-        }
-        @media (max-width: $xs-max-width-small) {
-          font-size: 2.4rem;
+        z-index: 9;
+        h3 {
+          font-size: 3rem;
+          line-height: 50px;
+          color: #fbfffb;
+          font-weight: 700;
+          @media (max-width: $sm-min-width) {
+            font-size: 2.5rem;
+            line-height: 40px;
+          }
+          @media (max-width: $xs-min-width) {
+            font-size: 2rem;
+            line-height: 30px;
+          }
         }
       }
-
-      p {
-        color: #ffffff;
-        font-size: 1.8rem;
-        text-align: center;
-        @media (max-width: $xs-max-width) {
-          font-size: 1.4rem;
-        }
-      }
-    }
-    &-desc {
-      p {
-        z-index: 10;
-        text-align: center;
-        font-size: 2rem;
-        padding: 0 150px;
-        color: #8e908d;
-        @media (max-width: $sm-min-width) {
-          font-size: var(--fs-text-primary);
-          padding: 0 50px;
-        }
-        @media (max-width: $xs-max-width) {
-          font-size: 1.4rem;
-          padding: 0 30px;
-        }
-        @media (max-width: $xs-max-width-large) {
-          font-size: 1.2rem;
-          padding: 0 30px;
-        }
-        @media (max-width: $xs-max-width-medium) {
-          font-size: var(--padding-small);
-          padding: 0 10px;
-        }
+      &-description {
+        width: 100%;
+        margin: 20px 0;
+        z-index: 9;
+        h6 {
+          font-size: 1.7rem;
+          line-height: 24px;
+          color: #ffffff;
+          font-weight: 300;
+          @media (max-width: $sm-min-width) {
+            font-size: 1.5rem;
+          }
+        }  
       }
     }
   }

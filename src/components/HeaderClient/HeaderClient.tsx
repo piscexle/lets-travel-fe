@@ -6,7 +6,6 @@ import Link from 'next/link';
 import { Button, Col, Drawer, Flex, Menu, Popover, Row, Space } from 'antd';
 import { usePathname, useRouter } from 'next/navigation';
 import React, { useEffect, useMemo, useState } from 'react';
-import csx from 'classnames';
 import { useLocale, useTranslations } from 'next-intl';
 import { useRouter as NextRouter } from '@/navigation';
 import './header.scss';
@@ -35,6 +34,18 @@ const HeaderClient = () => {
   const [info, setInfo] = useState<any>({});
   const { user, token, typeLogin } = useAppSelector((state) => state.authSlice);
   const [showConfirmLogoutVisible, setShowConfirmLogoutVisible] = useState<boolean>(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      const scrolled = window.scrollY > 100;
+      setIsScrolled(scrolled);
+    };
+    window.addEventListener('scroll', handleScroll);
+    return () => {
+      window.removeEventListener('scroll', handleScroll);
+    };
+  }, []);
 
   useEffect(() => {
     dispatch(getInfoBusiness());
@@ -128,7 +139,7 @@ const HeaderClient = () => {
   );
 
   return (
-    <header className={csx('wrapper-header-client')}>
+    <header className={`wrapper-header-client ${isScrolled ? 'active' : ''}`}>
       <div className="container">
         <Row className="row-container">
           <Col
@@ -174,8 +185,8 @@ const HeaderClient = () => {
                     <Image
                       width={50}
                       height={50}
-                      src="/images/pnl-logo.png"
-                      alt="PNL"
+                      src="/images/logo.svg"
+                      alt="Lets Travel"
                       onClick={() => {
                         setOpen(false);
                         router.push('/');

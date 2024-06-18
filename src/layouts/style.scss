@@ -1,3 +1,6 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
 .wrapper-sidebar-admin {
   overflow: auto;
   height: 100vh;
@@ -135,6 +138,10 @@
     width: 46px !important;
     height: 46px;
     border-radius: 50%;
+
+    &-primary {
+      color: var(--font-color-black) !important;
+    }
   }
 }
 

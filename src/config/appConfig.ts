@@ -1,11 +1,11 @@
 const appConfig = {
-  siteName: 'Lets travel',
-  title: 'Lets travel',
-  description: 'Lets travel',
+  siteName: `Let's Travel`,
+  title: `Let's Travel`,
+  description: `Let's Travel`,
   locale: 'vi',
-  url: 'https://Letstravel.com.vn',
+  url: 'https://Letstravel.vn',
   type: 'article',
-  keywords: 'Lets travel',
+  keywords: `Let's Travel`,
 };
 
 export { appConfig };

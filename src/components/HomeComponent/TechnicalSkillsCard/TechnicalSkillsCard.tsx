@@ -77,6 +77,7 @@ const TechnicalSkillsCardComponent = () => {
             image: item.image as string,
           }))}
           {...settings}
+          loading
         />
       </div>
     </div>
