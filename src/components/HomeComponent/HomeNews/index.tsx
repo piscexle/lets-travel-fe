@@ -21,7 +21,7 @@ const Index = () => {
 
   return (
     <div className="home-news">
-      <HeaderRectangle title={t('itemNews')} titleIsRight />
+      <HeaderRectangle title={t('itemNews')} titleIsLeft miniTitle="hihi" />
       <div className="home-news-container">
         <Row gutter={{ xxl: 40, xl: 40, md: 35, sm: 30 }} className="row-home-news-container">
           <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12} className="news-normal">

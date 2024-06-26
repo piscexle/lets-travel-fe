@@ -63,7 +63,12 @@ const Feedback = () => {
   return (
     <div className="home-feedback">
       <div className="home-feedback-content">
-        <HeaderRectangle title={t('itemFeedback')} titleIsRight className="feedback-rectangle" />
+        <HeaderRectangle
+          title={t('itemFeedback')}
+          titleIsLeft
+          miniTitle="hihi"
+          className="feedback-rectangle"
+        />
         {listCustomerFeedback.data.length > 0 && (
           <div className="home-feedback-carousel">
             <Carousel {...carouselSettings}>

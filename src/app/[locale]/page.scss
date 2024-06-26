@@ -356,8 +356,6 @@
           overflow: hidden;
           -webkit-line-clamp: 3;
           text-overflow: ellipsis;
-          display: -webkit-box;
-          -webkit-box-orient: vertical;
           white-space: normal;
         }
       }
@@ -432,7 +430,7 @@
 
   // về chúng tôi
   &-about-us {
-    margin: 40px auto;
+    margin: 60px auto;
     height: 335px;
     align-items: center;
     display: flex;

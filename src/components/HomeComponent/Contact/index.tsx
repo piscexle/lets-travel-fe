@@ -20,7 +20,7 @@ const Contact = () => {
   }, [dispatch]);
   return (
     <div className="home-contact">
-      <HeaderRectangle title={t('itemContact')} titleIsRight={false} />
+      <HeaderRectangle title={t('itemContact')} titleIsLeft={false} miniTitle="hihi" />
       <div className="contact-info">
         <div className="container-info">
           <Flex vertical align="center">

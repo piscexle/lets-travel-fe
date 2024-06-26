@@ -2,7 +2,7 @@
 
 // import AboutUsCardComponent from '@/components/HomeComponent/AboutUsCard/AboutUsCard';
 // import IntroPage from '@/components/HomeComponent/IntroPage/IntroCard';
-import FieldComponent from '@/components/HomeComponent/Field';
+import DestinationComponent from '@/components/HomeComponent/Destination';
 // import FeedbackComponent from '@/components/HomeComponent/Feedback';
 // import OverviewComponent from '@/components/HomeComponent/Overview';
 // import HomeNewsComponent from '@/components/HomeComponent/HomeNews';
@@ -25,8 +25,8 @@ import {
   Spin,
   Typography,
 } from 'antd';
-import { resetServicesDetail } from '@/store/services/services.reducer';
-import ArrowIcon from '@/icons/ArrowIcon';
+// import { resetServicesDetail } from '@/store/services/services.reducer';
+// import ArrowIcon from '@/icons/ArrowIcon';
 import './page.scss';
 import { getInfoBanner } from '@/store/banner/banner.action';
 import Image from 'next/image';
@@ -45,11 +45,11 @@ import { NextArrow, PrevArrow } from '@/components/Carousel/ArrowCarousel';
 import SearchIcon from '@/icons/SearchIcon';
 import { useSearchParams } from 'next/navigation';
 
-type TypesAboutUs = {
-  id?: string;
-  title?: string;
-  content?: string;
-};
+// type TypesAboutUs = {
+//   id?: string;
+//   title?: string;
+//   content?: string;
+// };
 
 const carouselBannerSettings = {
   dots: true,
@@ -65,7 +65,7 @@ const carouselBannerSettings = {
 };
 
 const HomePage = () => {
-  const { services } = useAppSelector((state) => state.serviceSlice);
+  // const { services } = useAppSelector((state) => state.serviceSlice);
   // const { infoBanner } = useAppSelector((state) => state.bannerSlice);
   const { infoBusiness } = useAppSelector((state) => state.businessSlice);
   // const { dataWhatWeDo } = useAppSelector((state) => state.whatWeDosSlice);
@@ -132,28 +132,28 @@ const HomePage = () => {
       buttonLink: 'https://shopee.vn',
     },
   ];
-  const dataMockAboutUs: TypesAboutUs[] = [
-    {
-      id: '1',
-      title: t('titleVision'),
-      content: t('contentVision'),
-    },
-    {
-      id: '2',
-      title: t('titleMission'),
-      content: t('contentMission'),
-    },
-    {
-      id: '3',
-      title: t('titleCoreValues'),
-      content: t('contentCoreValues'),
-    },
-    {
-      id: '4',
-      title: t('titleDevelopmentHistory'),
-      content: t('contentDevelopmentHistory'),
-    },
-  ];
+  // const dataMockAboutUs: TypesAboutUs[] = [
+  //   {
+  //     id: '1',
+  //     title: t('titleVision'),
+  //     content: t('contentVision'),
+  //   },
+  //   {
+  //     id: '2',
+  //     title: t('titleMission'),
+  //     content: t('contentMission'),
+  //   },
+  //   {
+  //     id: '3',
+  //     title: t('titleCoreValues'),
+  //     content: t('contentCoreValues'),
+  //   },
+  //   {
+  //     id: '4',
+  //     title: t('titleDevelopmentHistory'),
+  //     content: t('contentDevelopmentHistory'),
+  //   },
+  // ];
 
   // const settingCarouselField = {
   //   dots: false,
@@ -253,7 +253,7 @@ const HomePage = () => {
         </div>
 
         {/* phần dịch vụ */}
-        <div className="container">
+        {/* <div className="container">
           <div className="wrapper-home-page-services">
             {services?.length > 0 ? (
               <Row gutter={[20, 20]}>
@@ -306,10 +306,10 @@ const HomePage = () => {
               </Row>
             ) : null}
           </div>
-        </div>
+        </div> */}
 
         {/* phần về chúng tôi */}
-        <div className="container">
+        {/* <div className="container">
           <div className="wrapper-home-page-about-us">
             <picture className="wrapper-home-page-about-us-image">
               <source srcSet="/images/tech_background.jpg" type="image/jpg" />
@@ -333,17 +333,22 @@ const HomePage = () => {
               </Carousel>
             </div>
           </div>
-        </div>
+        </div> */}
 
         {/* lĩnh vực */}
-        {/* <SectionHead title={t('itemField')} titleIsRight={false} /> */}
+        {/* <SectionHead title={t('itemField')} titleIsLeft={false} /> */}
         {/* <div className="container">
         <Carousel {...settingCarouselField}></Carousel>
       </div> */}
-        <FieldComponent />
+        <DestinationComponent />
 
         {/* khách hàng đánh giá */}
-        <SectionHead title={t('itemFeedback')} titleIsRight />
+        <SectionHead
+          miniTitle="hello"
+          description="hdjsdkjf jdhajkd aosdhao"
+          title={t('itemFeedback')}
+          titleIsLeft
+        />
         <div className="container">
           <Carousel rootClassName="wrapper-home-page-feedback" {...settingCarouselCustomerFeedback}>
             {listCustomerFeedback.data.map((el) => (
@@ -365,7 +370,12 @@ const HomePage = () => {
         </div>
 
         {/* tổng quan */}
-        <SectionHead title={t('itemOverview')} titleIsRight={false} />
+        <SectionHead
+          miniTitle="hello"
+          description="hdjsdkjf jdhajkd aosdhao"
+          title={t('itemOverview')}
+          titleIsLeft={false}
+        />
         <div className="container wrapper-home-page-news">
           <Flex align="center" justify="center">
             <div className="wrapper-home-page-overview">
@@ -421,7 +431,12 @@ const HomePage = () => {
         </div>
 
         {/* tin tức */}
-        <SectionHead title={t('itemNews')} titleIsRight />
+        <SectionHead
+          miniTitle="hello"
+          description="hdjsdkjf jdhajkd aosdhao"
+          title={t('itemNews')}
+          titleIsLeft
+        />
         <div className="container wrapper-home-page-news">
           <Row gutter={[16, 16]} className="wrapper-home-page-news-container">
             <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12} className="news-normal">
@@ -484,7 +499,12 @@ const HomePage = () => {
         </div>
 
         {/* liên hệ */}
-        <SectionHead title={t('itemContact')} titleIsRight={false} />
+        <SectionHead
+          miniTitle="hello"
+          description="hdjsdkjf jdhajkd aosdhao"
+          title={t('itemContact')}
+          titleIsLeft={false}
+        />
         <div className="container wrapper-home-page-contact-us">
           <div className="contact-info">
             <div className="container-info">

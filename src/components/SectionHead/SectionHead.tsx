@@ -5,51 +5,49 @@ import { useInView, motion } from 'framer-motion';
 import csx from 'classnames';
 
 interface Props {
+  miniTitle: string;
   title: string;
-  titleIsRight: boolean;
+  titleIsLeft: boolean;
   className?: string;
+  description?: string;
 }
 
-const SectionHead: React.FC<Props> = ({ title, titleIsRight, className }) => {
+const SectionHead: React.FC<Props> = ({
+  miniTitle,
+  title,
+  titleIsLeft,
+  className,
+  description,
+}) => {
   const ref = useRef(null);
-  const isInView = useInView(ref);
+  const isInView = useInView(ref, { once: true });
   const motionSetting = {
-    initial: { opacity: 0, x: titleIsRight ? '-100%' : '100%' },
-    animate: isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: titleIsRight ? '-100%' : '100%' },
+    initial: { opacity: 0, x: titleIsLeft ? '-100%' : '100%' },
+    animate: isInView ? { opacity: 1, x: 0 } : { opacity: 0, x: titleIsLeft ? '-100%' : '100%' },
     transition: { duration: 1 },
   };
-  const wordsTitle = title.split(' ');
+
+  const motionCenterSetting = {
+    initial: { opacity: 0, y: 50 },
+    animate: isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 50 },
+    transition: { duration: 1 },
+    exit: { opacity: 0, y: 50 },
+  };
 
   return (
     <div className={csx('container container-rectangle', className)} ref={ref}>
-      <Flex justify="space-between" align="center">
-        {titleIsRight ? (
+      <Flex vertical gap={8} justify="space-between" align={titleIsLeft ? 'center' : 'flex-start'}>
+        {titleIsLeft ? (
           <>
-            <div
-              className={csx(
-                { rectangle: wordsTitle?.length <= 2 },
-                { 'rectangle-midle': wordsTitle?.length > 2 },
-                { 'rectangle-left': titleIsRight === true }
-              )}
-            >
-              <motion.div {...motionSetting} className="rectangle-top" />
-              <motion.div {...motionSetting} className="rectangle-bottom" />
-            </div>
-            <h3>{title}</h3>
+            <motion.h5 {...motionCenterSetting}>{miniTitle}</motion.h5>
+            <motion.h1 {...motionCenterSetting}>{title}</motion.h1>
+            <motion.p {...motionCenterSetting}>{description}</motion.p>
           </>
         ) : (
           <>
-            <h3>{title}</h3>
-            <div
-              className={csx(
-                { rectangle: wordsTitle?.length <= 2 },
-                { 'rectangle-midle': wordsTitle?.length > 2 },
-                { 'rectangle-right': !titleIsRight }
-              )}
-            >
-              <motion.div {...motionSetting} className="rectangle-top" />
-              <motion.div {...motionSetting} className="rectangle-bottom" />
-            </div>
+            <motion.h5 {...motionSetting}>{miniTitle}</motion.h5>
+            <motion.h1 {...motionSetting}>{title}</motion.h1>
+            <motion.p {...motionSetting}>{description}</motion.p>
           </>
         )}
       </Flex>

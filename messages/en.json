@@ -67,7 +67,7 @@
     "itemIntroduce": "Introduce",
     "itemNews": "News",
     "itemStructure": "Organizational structure",
-    "itemField": "Fields",
+    "itemDestination": "Destinations",
     "itemFeedback": "Customer feedback",
     "itemOverview": "Overview",
     "itemContact": "Contact",
@@ -98,6 +98,8 @@
     "itemProfile": "My profile",
     "titleVN": "Vietnamese",
     "titleEN": "England",
-    "titleSearch": "Search for reviews where you want to go..."
+    "titleSearch": "Search for reviews where you want to go...",
+    "itemBlog": "Blog",
+    "itemPopular": "Popular"
   }
 }

@@ -16,7 +16,7 @@ const Index = () => {
 
   return (
     <div className="home-overview">
-      <HeaderRectangle title={t('itemOverview')} titleIsRight={false} />
+      <HeaderRectangle title={t('itemOverview')} titleIsLeft={false} miniTitle="hihi" />
       <Flex align="center" justify="center" className="quick-fact-container">
         <div className="quick-fact">
           <div className="overview-title">

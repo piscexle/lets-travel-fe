@@ -65,7 +65,7 @@
     "itemIntroduce": "Giới thiệu",
     "itemNews": "Tin tức",
     "itemStructure": "Cơ cấu tổ chức",
-    "itemField": "Lĩnh vực",
+    "itemDestination": "Điểm đến",
     "itemFeedback": "Phản hồi khách hàng",
     "itemOverview": "Tổng quan",
     "itemContact": "Liên hệ",
@@ -95,6 +95,8 @@
     "itemProfile": "Thông tin cá nhân",
     "titleVN": "Tiếng Việt",
     "titleEN": "Tiếng Anh",
-    "titleSearch": "Tìm kiếm đánh giá nơi bạn muốn đến..."
+    "titleSearch": "Tìm kiếm đánh giá nơi bạn muốn đến...",
+    "itemBlog": "Bài viết",
+    "itemPopular": "Nổi bật"
   }
 }
