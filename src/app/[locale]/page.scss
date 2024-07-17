@@ -542,7 +542,9 @@
   // lĩnh vực
 
   // khách hàng đánh giá
-  &-feedback {
+  &-transports {
+    margin-bottom: 80px;
+    
     .slick-slider {
       overflow: hidden;
     }
@@ -552,86 +554,49 @@
         margin: 0 -10px;
       }
 
-      .slick-list {
-        padding-top: 24px !important;
-        padding-bottom: 32px !important;
-        box-sizing: initial;
-        overflow: visible;
-      }
-
       .slick-slide {
         padding: 0 10px;
         height: 100%;
       }
     }
 
-    &-item {
-      cursor: pointer;
-      background-color: #ffffff;
-
-      display: flex;
+    &-content {
+      display: flex !important;
+      justify-content: space-evenly;
       flex-direction: column;
-      align-items: flex-start;
-      gap: 16px;
-      padding: 16px;
-      box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
-
-      border-radius: 20px;
-      height: 270px;
-
-      @media screen and (max-width: $xs-max-width) {
-        box-shadow: none;
-        border: 1.2px solid #f0f0f0;
-      }
-
-      .ant-image {
-        width: 50px;
-        height: 50px;
-        & img {
-          width: 100%;
-          height: 100%;
-          border-radius: 50%;
-          border: 1px solid #bfbfbf;
-        }
-      }
-      .feedback-rate-start {
-        width: 100%;
-        .ant-rate .ant-rate-star-first,
-        .ant-rate .ant-rate-star-second {
-          color: #fadb14;
-        }
-        ul {
-          padding: 4px 8px;
-          border: 1px solid #FFCB45;
-          border-radius: 20px;
-        }
-      }
-      .customer-name {
-        font-size: 2rem;
-        line-height: 34px;
-        color: #000;
+      gap: 24px;
+      &-order {
+        font-size: 3.4rem;  
         font-weight: 600;
+        color: var(--primary-color);
+
+        @media(max-width: $sm-max-width) {
+          font-size: 3rem;
+        }
       }
-      h4 {
-        font-size: 2rem;
-        font-weight: 600;
-        text-transform: uppercase;
-        color: #FFCB45;
-        height: 50px;
-      }
-      .customer-message {
-        font-size: 1.5rem;
-        line-height: 20px;
-        font-weight: 400;
+      &-btn {
+        width: 360px;
         height: 60px;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        overflow: hidden;
-        -webkit-line-clamp: 3;
-        text-overflow: ellipsis;
-        display: -webkit-box;
-        -webkit-box-orient: vertical;
-        white-space: normal;
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2rem;
+        font-weight: 600;  
+        box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px !important;
+        transition: background-color 0.5s ease-out;
+
+        @media(max-width: $sm-max-width) {
+          width: 270px;
+          height: 50px;
+          font-size: 1.6rem;
+        }
+
+        &:hover {
+          background-color: var(--primary-color);
+          color: #ffffff;
+          cursor: pointer;
+        }
       }
     }
   }

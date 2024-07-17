@@ -9,6 +9,8 @@ interface Props {
     title?: string;
     description?: string;
     buttonLink?: string;
+    width?: number;
+    height?: number;
   }[];
   carouselBannerSettings: any;
   loading: boolean;
@@ -26,6 +28,8 @@ const Banner = ({ data, loading, carouselBannerSettings }: Props) => (
       title: item.title,
       description: item.description,
       buttonLink: item.buttonLink,
+      width: item.width,
+      height: item.height,
     }))}
     isComponentChild
     loading={loading}

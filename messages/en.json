@@ -74,8 +74,8 @@
     "textInfo": "Information",
     "footerTextMap": "MAP DIRECTIONS",
     "footerTextLink": "PAGE LINK",
-    "footerTextCopyright": "Copyright © 2023. PNL Digital Transformation Solutions Company",
-    "footerTextLicense": "Copyright and ownership belong to the company providing the PNL digital transformation solution.",
+    "footerTextCopyright": "Copyright © 2024. IC Technology Company",
+    "footerTextLicense": "Copyright and ownership belong to the company providing the IC Technology.",
     "footerTaxCode": "Tax code",
     "itemSeeAll": "See all",
     "establish": "Establish",
@@ -100,6 +100,7 @@
     "titleEN": "England",
     "titleSearch": "Search for reviews where you want to go...",
     "itemBlog": "Blog",
-    "itemPopular": "Popular"
+    "itemPopular": "Popular",
+    "itemPerfect": "Perfect"
   }
 }

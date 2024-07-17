@@ -7,6 +7,7 @@ import { Flex, Image } from 'antd';
 import CustomButton from '@/components/Button/CustomButton';
 import { useRouter } from 'next/navigation';
 import PlaceIcon from '@/icons/PlaceIcon';
+import CountUp from 'react-countup';
 
 const Destination = () => {
   const t = useTranslations('common');
@@ -18,7 +19,7 @@ const Destination = () => {
       id: '1',
       title: 'Hạ Long',
       image: '/images/delivery.png',
-      countBlog: '20',
+      countBlog: 20,
       description:
         'Delivery will be on time Delivery will be on time Delivery will be on time Delivery will be on time....',
       buttonLink: '/',
@@ -27,7 +28,7 @@ const Destination = () => {
       id: '2',
       title: 'Hạ Long',
       image: '/images/delivery.png',
-      countBlog: '20',
+      countBlog: 20,
       description:
         'Delivery will be on time Delivery will be on time Delivery will be on time Delivery will be on time....',
       buttonLink: '/',
@@ -36,7 +37,7 @@ const Destination = () => {
       id: '3',
       title: 'Hạ Long',
       image: '/images/delivery.png',
-      countBlog: '20',
+      countBlog: 20,
       description:
         'Delivery will be on time Delivery will be on time Delivery will be on time Delivery will be on time....',
       buttonLink: '/',
@@ -65,7 +66,8 @@ const Destination = () => {
               <div className="destination-content">
                 <h3>{item.title}</h3>
                 <p>
-                  <PlaceIcon /> {item.countBlog} {t('itemBlog')}
+                  <PlaceIcon /> <CountUp end={item.countBlog || 0} duration={5} enableScrollSpy />{' '}
+                  {t('itemBlog')}
                 </p>
                 <p className="destination-content-des">{item.description}</p>
                 <CustomButton

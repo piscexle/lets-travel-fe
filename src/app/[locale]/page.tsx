@@ -13,18 +13,7 @@ import { useAppDispatch, useAppSelector } from '@/store';
 import { useRouter } from '@/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { getDataServices } from '@/store/services/services.action';
-import {
-  Button,
-  Carousel,
-  Col,
-  Flex,
-  Image as ImageAnt,
-  Input,
-  Rate,
-  Row,
-  Spin,
-  Typography,
-} from 'antd';
+import { Button, Col, Flex, Input, Row, Spin, Typography } from 'antd';
 // import { resetServicesDetail } from '@/store/services/services.reducer';
 // import ArrowIcon from '@/icons/ArrowIcon';
 import './page.scss';
@@ -44,6 +33,7 @@ import { v4 as uuidv4 } from 'uuid';
 import { NextArrow, PrevArrow } from '@/components/Carousel/ArrowCarousel';
 import SearchIcon from '@/icons/SearchIcon';
 import { useSearchParams } from 'next/navigation';
+import Transports from '@/components/Transports/page';
 
 // type TypesAboutUs = {
 //   id?: string;
@@ -70,7 +60,6 @@ const HomePage = () => {
   const { infoBusiness } = useAppSelector((state) => state.businessSlice);
   // const { dataWhatWeDo } = useAppSelector((state) => state.whatWeDosSlice);
   // const { dataCustomerByWhatWeDo } = useAppSelector((state) => state.customerSlice);
-  const { listCustomerFeedback } = useAppSelector((state) => state.customerSlice);
   const { listNews } = useAppSelector((state) => state.newsSlice);
 
   const searchParams = useSearchParams();
@@ -132,6 +121,25 @@ const HomePage = () => {
       buttonLink: 'https://shopee.vn',
     },
   ];
+
+  const infoTransports = [
+    {
+      id: '1',
+      title: 'Máy bay',
+    },
+    {
+      id: '2',
+      title: 'Xe khách',
+    },
+    {
+      id: '3',
+      title: 'Tàu',
+    },
+    {
+      id: '4',
+      title: 'Xe máy',
+    },
+  ];
   // const dataMockAboutUs: TypesAboutUs[] = [
   //   {
   //     id: '1',
@@ -189,28 +197,6 @@ const HomePage = () => {
   //   ],
   // };
 
-  const settingCarouselCustomerFeedback = {
-    infinite: true,
-    speed: 500,
-    slidesToShow: 3,
-    slidesToScroll: 3,
-    variableWidth: false,
-    centerMode: false,
-    autoplaySpeed: 5000,
-    autoplay: true,
-    responsive: [
-      {
-        breakpoint: 500,
-        settings: {
-          slidesToShow: 1,
-          slidesToScroll: 1,
-          variableWidth: false,
-          centerMode: false,
-        },
-      },
-    ],
-  };
-
   return (
     <Suspense fallback={<Spin spinning fullscreen />}>
       <MainClient>
@@ -227,6 +213,8 @@ const HomePage = () => {
                     title: item?.title,
                     description: item?.description,
                     buttonLink: item?.buttonLink,
+                    width: 3000,
+                    height: 700,
                   })) || []
                 }
                 carouselBannerSettings={carouselBannerSettings}
@@ -342,39 +330,60 @@ const HomePage = () => {
       </div> */}
         <DestinationComponent />
 
-        {/* khách hàng đánh giá */}
+        {/* di chuyển */}
         <SectionHead
-          miniTitle="hello"
-          description="hdjsdkjf jdhajkd aosdhao"
-          title={t('itemFeedback')}
+          miniTitle={t('itemPopular')}
+          description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
+          title={t('itemTransport')}
           titleIsLeft
         />
-        <div className="container">
-          <Carousel rootClassName="wrapper-home-page-feedback" {...settingCarouselCustomerFeedback}>
-            {listCustomerFeedback.data.map((el) => (
-              <div key={el.id}>
-                <div className="wrapper-home-page-feedback-item" aria-hidden="true">
-                  <Flex align="center" justify="center" gap={12}>
-                    <ImageAnt src={el.avatar} alt="avatar" preview={false} />
-                    <span className="customer-name">{el.name}</span>
-                  </Flex>
-                  <h4>{el.position}</h4>
-                  <p className="customer-message">{el.message}</p>
-                  <Flex justify="flex-end" className="feedback-rate-start">
-                    <Rate disabled defaultValue={el.voteStar} />
-                  </Flex>
-                </div>
-              </div>
-            ))}
-          </Carousel>
+
+        <div className="container wrapper-home-page-transports">
+          <Row gutter={[20, 20]}>
+            <Col
+              xs={24}
+              sm={24}
+              md={12}
+              lg={12}
+              xl={12}
+              className="wrapper-home-page-transports-content"
+            >
+              {infoTransports.map((item) => (
+                <Flex
+                  gap={24}
+                  key={item.id}
+                  align="center"
+                  justify={(infoTransports.indexOf(item) + 1) % 2 ? 'flex-end' : 'flex-start'}
+                >
+                  <div className="wrapper-home-page-transports-content-order">
+                    0{infoTransports.indexOf(item) + 1}
+                  </div>
+                  <div className="wrapper-home-page-transports-content-btn">{item.title}</div>
+                </Flex>
+              ))}
+            </Col>
+            <Col xs={24} sm={24} md={12} lg={12} xl={12}>
+              <Transports
+                data={
+                  infoBanner?.map((item: any) => ({
+                    id: uuidv4(),
+                    image: item?.image,
+                    width: 800,
+                    height: 800,
+                  })) || []
+                }
+                loading
+              />
+            </Col>
+          </Row>
         </div>
 
         {/* tổng quan */}
         <SectionHead
-          miniTitle="hello"
-          description="hdjsdkjf jdhajkd aosdhao"
-          title={t('itemOverview')}
-          titleIsLeft={false}
+          miniTitle={t('itemPerfect')}
+          description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
+          title={t('itemStay')}
+          titleIsLeft
         />
         <div className="container wrapper-home-page-news">
           <Flex align="center" justify="center">

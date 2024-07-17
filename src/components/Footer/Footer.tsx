@@ -30,7 +30,7 @@ const FooterClient = () => {
               <Flex vertical className="wrapper-footer-map">
                 <h4 className="footer-title">{t('footerTextMap')}</h4>
                 <iframe
-                  title="Pnl"
+                  title="Let's travel"
                   width="100%"
                   height="200"
                   frameBorder="0"
@@ -117,7 +117,7 @@ const FooterClient = () => {
                     <li>{t('footerTextCopyright')}</li>
                     <li>{t('footerTextLicense')}</li>
                     <li>{`${t('footerTaxCode')}: 0402206057`}</li>
-                    <li>Powerby PNL Co.ltd</li>
+                    <li>Power by IC Technology</li>
                   </ul>
                 </Flex>
               </Flex>
@@ -134,7 +134,8 @@ const FooterClient = () => {
               <Flex vertical className="footer-fb-content" justify="space-between">
                 <div className="fb-pnl">
                   <iframe
-                    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/chuyendoisopnl.ltd%2Ffacebook&height=300&small_header=false&adapt_container_width=true&show_facepile=true&appId=1138159870540316"
+                    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=100008118336402%2Ffacebook&height=300&small_header=false&adapt_container_width=true&show_facepile=true&appId=100008118336402"
+                    // src="https://www.facebook.com/profile.php?id=100008118336402"
                     width="100%"
                     height="100%"
                     title="web"
@@ -148,7 +149,7 @@ const FooterClient = () => {
                     <li>{t('footerTextCopyright')}</li>
                     <li>{t('footerTextLicense')}</li>
                     <li>{`${t('footerTaxCode')}: 0402206057`}</li>
-                    <li>Powerby PNL Co.ltd</li>
+                    <li>Power by IC Technology</li>
                   </ul>
                 </Flex>
                 <Image src="/images/bo-cong-thuong.webp" preview={false} alt="bct" />

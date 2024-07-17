@@ -20,6 +20,8 @@ type Props = {
     title?: string;
     description?: string;
     buttonLink?: string;
+    width?: number;
+    height?: number;
   }[];
   className?: string;
   classNameChild?: string;
@@ -58,11 +60,12 @@ const Carousel: React.FC<Props> = ({
               <Image
                 src={imageSlide.image}
                 alt=""
-                fill
                 placeholder="blur"
                 blurDataURL={createRGBDataURL(199, 199, 199)}
                 sizes="100%"
                 priority
+                width={imageSlide?.width}
+                height={imageSlide?.height}
               />
               <div className="carousel-content">
                 {imageSlide.title ? (
