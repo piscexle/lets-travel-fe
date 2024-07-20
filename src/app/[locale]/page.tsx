@@ -13,7 +13,7 @@ import { useAppDispatch, useAppSelector } from '@/store';
 import { useRouter } from '@/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { getDataServices } from '@/store/services/services.action';
-import { Button, Col, Flex, Input, Row, Spin, Typography } from 'antd';
+import { Button, Col, Flex, Input, Row, Spin, Typography, Carousel as CarouselAnt } from 'antd';
 // import { resetServicesDetail } from '@/store/services/services.reducer';
 // import ArrowIcon from '@/icons/ArrowIcon';
 import './page.scss';
@@ -21,8 +21,6 @@ import { getInfoBanner } from '@/store/banner/banner.action';
 import Image from 'next/image';
 import SectionHead from '@/components/SectionHead/SectionHead';
 import { getCustomerFeedback } from '@/store/customer/customer.action';
-import CountUp from 'react-countup';
-import dayjs from 'dayjs';
 import { getListNewsAction } from '@/store/news/news.action';
 import PhoneIcon from '@/icons/PhoneIcon';
 import GmailIcon from '@/icons/GmailIcon';
@@ -34,6 +32,8 @@ import { NextArrow, PrevArrow } from '@/components/Carousel/ArrowCarousel';
 import SearchIcon from '@/icons/SearchIcon';
 import { useSearchParams } from 'next/navigation';
 import Transports from '@/components/Transports/page';
+import CardItem from '@/components/Card/Card';
+import CustomButton from '@/components/Button/CustomButton';
 
 // type TypesAboutUs = {
 //   id?: string;
@@ -52,6 +52,42 @@ const carouselBannerSettings = {
   autoplay: true,
   nextArrow: <NextArrow />,
   prevArrow: <PrevArrow />,
+};
+
+const carouselSectionSettings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 4,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplaySpeed: 3000,
+  autoplay: true,
+  initialSlide: 0,
+  draggable: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 4,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+  ],
 };
 
 const HomePage = () => {
@@ -140,28 +176,71 @@ const HomePage = () => {
       title: 'Xe máy',
     },
   ];
-  // const dataMockAboutUs: TypesAboutUs[] = [
-  //   {
-  //     id: '1',
-  //     title: t('titleVision'),
-  //     content: t('contentVision'),
-  //   },
-  //   {
-  //     id: '2',
-  //     title: t('titleMission'),
-  //     content: t('contentMission'),
-  //   },
-  //   {
-  //     id: '3',
-  //     title: t('titleCoreValues'),
-  //     content: t('contentCoreValues'),
-  //   },
-  //   {
-  //     id: '4',
-  //     title: t('titleDevelopmentHistory'),
-  //     content: t('contentDevelopmentHistory'),
-  //   },
-  // ];
+
+  const dataMockStays = [
+    {
+      id: '1',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 3000,
+      amountUS: 0.2,
+      tienVN: 400000,
+      tienUS: 16,
+      rate: 5,
+      place: 'Đà Lạt',
+    },
+    {
+      id: '2',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 3000,
+      amountUS: 0.2,
+      tienVN: 400000,
+      tienUS: 16,
+      discountPercentage: 10,
+      rate: 5,
+      place: 'Đà Lạt',
+    },
+    {
+      id: '3',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 3000,
+      amountUS: 0.2,
+      tienVN: 400000,
+      tienUS: 16,
+      discountPercentage: 5,
+      rate: 4,
+      place: 'Đà Lạt',
+    },
+    {
+      id: '4',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 3000,
+      amountUS: 0.2,
+      tienVN: 400000,
+      tienUS: 16,
+      rate: 5,
+      place: 'Đà Lạt',
+    },
+    {
+      id: '5',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 3000,
+      amountUS: 0.2,
+      tienVN: 400000,
+      tienUS: 16,
+      rate: 3,
+      place: 'Đà Lạt',
+    },
+  ];
 
   // const settingCarouselField = {
   //   dots: false,
@@ -378,65 +457,42 @@ const HomePage = () => {
           </Row>
         </div>
 
-        {/* tổng quan */}
+        {/* Stay */}
         <SectionHead
           miniTitle={t('itemPerfect')}
           description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
           title={t('itemStay')}
           titleIsLeft
         />
-        <div className="container wrapper-home-page-news">
-          <Flex align="center" justify="center">
-            <div className="wrapper-home-page-overview">
-              <div className="quick-fact">
-                <div className="overview-title">
-                  <h3>{t('itemOverview')}</h3>
-                  <span className="overview-year">{`${t('establish')}: ${dayjs(
-                    infoBusiness.establish
-                  ).format('DD/MM/YYYY')}`}</span>
-                  <span className="responsive-overview-year">{`${t('establish')}: ${dayjs(
-                    infoBusiness.establish
-                  ).format('DD/MM/YYYY')}`}</span>
-                </div>
-
-                <div className="text-color">
-                  <h4 className="text-red text-card">
-                    <span>+</span>
-                    <span className="count-up">
-                      <CountUp
-                        end={dayjs().diff(dayjs(infoBusiness?.establish), 'months')}
-                        duration={5}
-                        enableScrollSpy
-                      />
-                    </span>
-                    <span>{t('month')}</span>
-                  </h4>
-                  <h4 className="text-green text-card">
-                    <span>+</span>
-                    <span className="count-up count-up-client">
-                      <CountUp end={infoBusiness.clients || 0} duration={5} enableScrollSpy />
-                    </span>
-                    <span>{t('client')}</span>
-                  </h4>
-                  <h4 className="text-yellow text-card">
-                    <span>+</span>
-                    <span className="count-up">
-                      <CountUp end={infoBusiness?.personnel || 0} duration={5} enableScrollSpy />
-                    </span>
-                    <span>{t('textPersonnel')}</span>
-                  </h4>
-                  <h4 className="text-blue text-card">
-                    <span>+</span>
-                    <span className="count-up">
-                      <CountUp end={infoBusiness.projects || 0} duration={5} enableScrollSpy />
-                    </span>
-                    <span>{t('project')}</span>
-                  </h4>
-                </div>
-                <p className="text-intro">{infoBusiness?.overviewText?.[locale]}</p>
-              </div>
-            </div>
-          </Flex>
+        <div className="container wrapper-home-page-stays">
+          <CarouselAnt {...carouselSectionSettings}>
+            {dataMockStays.map((item) => (
+              <CardItem
+                key={uuidv4()}
+                name={item.name}
+                amountVN={item.amountVN}
+                amountUS={item.amountUS}
+                staySlug={item.staySlug}
+                thumbnail={item.thumbnail}
+                tienVN={item.tienVN}
+                tienUS={item.tienUS}
+                discountPercentage={item.discountPercentage}
+                type="STAYS"
+                rate={item.rate}
+                place={item.place}
+              />
+            ))}
+          </CarouselAnt>
+          <div className="btn-load-more">
+            <CustomButton
+              type="primary"
+              onClick={() => {
+                router.push('/');
+              }}
+            >
+              Load more stays
+            </CustomButton>
+          </div>
         </div>
 
         {/* tin tức */}
