@@ -13,12 +13,11 @@ import { useAppDispatch, useAppSelector } from '@/store';
 import { useRouter } from '@/navigation';
 import { useLocale, useTranslations } from 'next-intl';
 import { getDataServices } from '@/store/services/services.action';
-import { Button, Col, Flex, Input, Row, Spin, Typography, Carousel as CarouselAnt } from 'antd';
+import { Button, Col, Flex, Input, Row, Spin, Carousel as CarouselAnt, Avatar } from 'antd';
 // import { resetServicesDetail } from '@/store/services/services.reducer';
 // import ArrowIcon from '@/icons/ArrowIcon';
 import './page.scss';
 import { getInfoBanner } from '@/store/banner/banner.action';
-import Image from 'next/image';
 import SectionHead from '@/components/SectionHead/SectionHead';
 import { getCustomerFeedback } from '@/store/customer/customer.action';
 import { getListNewsAction } from '@/store/news/news.action';
@@ -34,6 +33,8 @@ import { useSearchParams } from 'next/navigation';
 import Transports from '@/components/Transports/page';
 import CardItem from '@/components/Card/Card';
 import CustomButton from '@/components/Button/CustomButton';
+import { RightOutlined } from '@ant-design/icons';
+import { useMediaQuery } from 'react-responsive';
 
 // type TypesAboutUs = {
 //   id?: string;
@@ -90,13 +91,48 @@ const carouselSectionSettings = {
   ],
 };
 
+const carouselBlogSettings = {
+  dots: false,
+  infinite: true,
+  speed: 500,
+  slidesToShow: 2,
+  slidesToScroll: 1,
+  arrows: true,
+  autoplaySpeed: 3000,
+  autoplay: true,
+  initialSlide: 0,
+  draggable: true,
+  responsive: [
+    {
+      breakpoint: 1024,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 768,
+      settings: {
+        slidesToShow: 2,
+        slidesToScroll: 1,
+      },
+    },
+    {
+      breakpoint: 576,
+      settings: {
+        slidesToShow: 1,
+        slidesToScroll: 1,
+      },
+    },
+  ],
+};
+
 const HomePage = () => {
   // const { services } = useAppSelector((state) => state.serviceSlice);
   // const { infoBanner } = useAppSelector((state) => state.bannerSlice);
   const { infoBusiness } = useAppSelector((state) => state.businessSlice);
   // const { dataWhatWeDo } = useAppSelector((state) => state.whatWeDosSlice);
   // const { dataCustomerByWhatWeDo } = useAppSelector((state) => state.customerSlice);
-  const { listNews } = useAppSelector((state) => state.newsSlice);
 
   const searchParams = useSearchParams();
   const [searchTerm, setSearchTerm] = useState<string>(
@@ -121,6 +157,8 @@ const HomePage = () => {
       // dispatch(postFilterProductsAction({ searchKey: searchTerm }));
     }
   };
+
+  const isMobile = useMediaQuery({ query: '(min-width: 575px)' });
 
   useEffect(() => {
     setSearchTerm(searchParams.get('searchKey') || '');
@@ -239,6 +277,65 @@ const HomePage = () => {
       tienUS: 16,
       rate: 3,
       place: 'Đà Lạt',
+    },
+  ];
+
+  const dataMockBlogs = [
+    {
+      id: '1',
+      sectionName: 'Food',
+      title:
+        'Đồ ăn Hà Giang Đồ ăn Hà Giang Đồ ăn Hà Giang Đồ ăn Hà Giang Đồ ăn Hà Giang Đồ ăn Hà Giang Đồ ăn Hà Giang',
+      thumbnail: '/images/food_7.jpg',
+      place: 'Hà Giang',
+      author: 'James',
+      createdAt: '2022-01-01',
+      avatar: '/images/avatar1.jpg',
+      slug: '/',
+    },
+    {
+      id: '2',
+      sectionName: 'Food',
+      title: 'Đồ ăn Hà Giang',
+      thumbnail: '/images/food_7.jpg',
+      place: 'Hà Giang',
+      author: 'James',
+      createdAt: '2022-01-01',
+      avatar: '/images/avatar1.jpg',
+      slug: '/',
+    },
+    {
+      id: '3',
+      sectionName: 'Food',
+      title: 'Đồ ăn Hà Giang',
+      thumbnail: '/images/food_7.jpg',
+      place: 'Hà Giang',
+      author: 'James',
+      createdAt: '2022-01-01',
+      avatar: '/images/avatar1.jpg',
+      slug: '/',
+    },
+    {
+      id: '4',
+      sectionName: 'Food',
+      title: 'Đồ ăn Hà Giang',
+      thumbnail: '/images/food_7.jpg',
+      place: 'Hà Giang',
+      author: 'James',
+      createdAt: '2022-01-01',
+      avatar: '/images/avatar1.jpg',
+      slug: '/',
+    },
+    {
+      id: '5',
+      sectionName: 'Food',
+      title: 'Đồ ăn Hà Giang',
+      thumbnail: '/images/food_7.jpg',
+      place: 'Hà Giang',
+      author: 'James',
+      createdAt: '2022-01-01',
+      avatar: '/images/avatar1.jpg',
+      slug: '/',
     },
   ];
 
@@ -429,8 +526,8 @@ const HomePage = () => {
             >
               {infoTransports.map((item) => (
                 <Flex
-                  gap={24}
                   key={item.id}
+                  gap={24}
                   align="center"
                   justify={(infoTransports.indexOf(item) + 1) % 2 ? 'flex-end' : 'flex-start'}
                 >
@@ -495,70 +592,75 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* tin tức */}
+        {/* Blogs */}
         <SectionHead
-          miniTitle="hello"
-          description="hdjsdkjf jdhajkd aosdhao"
-          title={t('itemNews')}
+          miniTitle="Blog"
+          description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
+          title={t('itemExperiences')}
           titleIsLeft
         />
-        <div className="container wrapper-home-page-news">
-          <Row gutter={[16, 16]} className="wrapper-home-page-news-container">
-            <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12} className="news-normal">
-              {listNews?.data?.map((el) => (
-                <div
-                  className="home-news-item"
-                  key={el.id}
-                  onClick={() =>
-                    router.push({
-                      pathname: '/news/[slug]',
-                      params: { slug: el.slug },
-                    })
-                  }
-                  aria-hidden="true"
-                >
-                  <Row gutter={[16, 16]}>
-                    <Col span={8}>
-                      <div className="item-image">
-                        <Image src={el?.thumbnail} alt="" width={500} height={500} />
+        <div className="container wrapper-home-page-blogs">
+          <Row gutter={[16, 16]} className="wrapper-home-page-blogs-container">
+            <Col xs={24} sm={24} md={16} lg={16} xl={16} xxl={16} className="blogs-left">
+              {dataMockBlogs?.[0] && (
+                <div className="blogs-left-content" aria-hidden onClick={() => router.push('/')}>
+                  <img className="thumbnail-left" src={dataMockBlogs?.[0].thumbnail} alt="" />
+                  <div className="shadow" />
+                  <div className="blogs-left-content-title">
+                    <h6>{dataMockBlogs?.[0].sectionName}</h6>
+                    <h3>{dataMockBlogs?.[0].title}</h3>
+                    <Flex align="center" className="avatar">
+                      <Avatar
+                        size={{ xs: 32, sm: 32, md: 25, lg: 32, xl: 40, xxl: 100 }}
+                        src={dataMockBlogs?.[0].avatar}
+                      />
+                      <div className="author">
+                        <p>{dataMockBlogs?.[0].author}</p>
+                        <p>{dataMockBlogs?.[0].createdAt}</p>
                       </div>
-                    </Col>
-                    <Col span={16}>
-                      <Flex vertical className="item-content">
-                        <h3>{el.title?.[locale] || ''}</h3>
-                        <Typography.Paragraph
-                          ellipsis={{ rows: 2, symbol: ' ' }}
-                          className="item-content-desc"
-                        >
-                          {el.description?.[locale] || ''}
-                        </Typography.Paragraph>
-                      </Flex>
-                    </Col>
-                  </Row>
-                </div>
-              ))}
-            </Col>
-            <Col xs={24} sm={12} md={12} lg={12} xl={12} xxl={12} className="news-outstanding">
-              {listNews?.data?.length === 5 && (
-                <div
-                  className="news-outstanding-content"
-                  onClick={() =>
-                    router.push({
-                      pathname: '/news/[slug]',
-                      params: { slug: listNews?.data?.[4]?.slug },
-                    })
-                  }
-                  aria-hidden="true"
-                >
-                  <div className="outstanding-image">
-                    <Image src={listNews?.data?.[4]?.thumbnail} alt="" width={800} height={300} />
+                    </Flex>
                   </div>
-                  <h3>{listNews?.data[4]?.title?.[locale]}</h3>
-                  <div className="outstanding-desc">
-                    <p>{listNews?.data?.[4]?.description?.[locale]}</p>
+                  <div className="item-btn">
+                    <RightOutlined />
                   </div>
                 </div>
               )}
+            </Col>
+            <Col xs={24} sm={24} md={8} lg={8} xl={8} xxl={8} className="blogs-right">
+              <CarouselAnt
+                dotPosition={isMobile ? 'left' : 'bottom'}
+                {...carouselBlogSettings}
+                style={{ height: 500 }}
+              >
+                {dataMockBlogs
+                  ?.filter((_, index) => index !== 0)
+                  .map((item) => (
+                    // eslint-disable-next-line react/jsx-key
+                    <div key={item.id}>
+                      <div
+                        className="blogs-right-content-item"
+                        aria-hidden
+                        onClick={() => router.push('/')}
+                      >
+                        <img className="thumbnail-right" src={item.thumbnail} alt="" />
+                        <div className="blogs-right-content-item-title">
+                          <h6>{item.sectionName}</h6>
+                          <h3>{item.title}</h3>
+                          <Flex align="center" className="avatar">
+                            <Avatar
+                              size={{ xs: 26, sm: 26, md: 20, lg: 26, xl: 30, xxl: 60 }}
+                              src={item.avatar}
+                            />
+                            <div className="author">
+                              <p>{item.author}</p>
+                              <p>{item.createdAt}</p>
+                            </div>
+                          </Flex>
+                        </div>
+                      </div>
+                    </div>
+                  ))}
+              </CarouselAnt>
             </Col>
           </Row>
         </div>
