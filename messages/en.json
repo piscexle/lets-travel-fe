@@ -6,6 +6,8 @@
     "itemStay": "Stays",
     "itemExperiences": "Experiences",
     "itemPlaceToStay": "Place to stay",
+    "itemValues": "Values",
+    "ourValues": "Our Values",
     "workHome": "Project",
     "customerHome": "Our Customer",
     "teamHome": "About Us",
@@ -102,6 +104,14 @@
     "itemBlog": "Blog",
     "itemPopular": "Popular",
     "itemPerfect": "Perfect",
-    "itemNight": "night"
+    "itemNight": "night",
+    "realisticExperiences": "Realistic Experiences",
+    "textExperiences": "We provide a platform for users to share authentic reviews and experiences of places they have visited.",
+    "seamlessBooking": "Seamless Booking",
+    "textBooking": "Book transportation and accommodation easily, all in one place.",
+    "personalizedRecommendations": "Personalized Recommendations",
+    "textRecommended": "Get tailored suggestions for food and places to stay at your next destination.",
+    "customTravelPlans": "Custom Travel Plans",
+    "textPlans": "Plan your trips your way, with detailed itineraries and personal notes."
   }
 }

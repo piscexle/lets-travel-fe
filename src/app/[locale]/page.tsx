@@ -33,7 +33,13 @@ import { useSearchParams } from 'next/navigation';
 import Transports from '@/components/Transports/page';
 import CardItem from '@/components/Card/Card';
 import CustomButton from '@/components/Button/CustomButton';
-import { RightOutlined } from '@ant-design/icons';
+import {
+  ClockCircleOutlined,
+  FlagOutlined,
+  RightOutlined,
+  SmileOutlined,
+  StarOutlined,
+} from '@ant-design/icons';
 import { useMediaQuery } from 'react-responsive';
 
 // type TypesAboutUs = {
@@ -336,6 +342,29 @@ const HomePage = () => {
       createdAt: '2022-01-01',
       avatar: '/images/avatar1.jpg',
       slug: '/',
+    },
+  ];
+
+  const features = [
+    {
+      icon: <SmileOutlined style={{ fontSize: '48px', color: '#FFCB45' }} />,
+      title: `${t('realisticExperiences')}`,
+      description: `${t('textExperiences')}`,
+    },
+    {
+      icon: <FlagOutlined style={{ fontSize: '48px', color: '#FFCB45' }} />,
+      title: `${t('seamlessBooking')}`,
+      description: `${t('textBooking')}`,
+    },
+    {
+      icon: <ClockCircleOutlined style={{ fontSize: '48px', color: '#FFCB45' }} />,
+      title: `${t('personalizedRecommendations')}`,
+      description: `${t('textRecommended')}`,
+    },
+    {
+      icon: <StarOutlined style={{ fontSize: '48px', color: '#FFCB45' }} />,
+      title: `${t('customTravelPlans')}`,
+      description: `${t('textPlans')}`,
     },
   ];
 
@@ -667,11 +696,26 @@ const HomePage = () => {
 
         {/* liên hệ */}
         <SectionHead
-          miniTitle="hello"
-          description="hdjsdkjf jdhajkd aosdhao"
-          title={t('itemContact')}
-          titleIsLeft={false}
+          miniTitle={t('itemValues')}
+          description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
+          title={t('ourValues')}
+          titleIsLeft
         />
+        <div className="container wrapper-home-page-values">
+          <div>
+            <Row gutter={[16, 16]} justify="center">
+              {features.map((feature, index) => (
+                <Col key={index} xs={24} sm={12} md={6} className="values-col">
+                  <div className="values-card">
+                    {feature.icon}
+                    <h3>{feature.title}</h3>
+                    <p>{feature.description}</p>
+                  </div>
+                </Col>
+              ))}
+            </Row>
+          </div>
+        </div>
         <div className="container wrapper-home-page-contact-us">
           <div className="contact-info">
             <div className="container-info">

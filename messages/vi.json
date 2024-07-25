@@ -6,6 +6,8 @@
     "itemStay": "Nơi lưu trú",
     "itemExperiences": "Kinh nghiệm",
     "itemPlaceToStay": "Nơi dừng chân",
+    "itemValues": "Giá trị",
+    "ourValues": "Giá trị của chúng tôi",
     "customerHome": "Khách hàng của chúng tôi",
     "teamHome": "Về chúng tôi",
     "careerHome": "Tuyển dụng",
@@ -99,6 +101,14 @@
     "itemBlog": "Bài viết",
     "itemPopular": "Nổi bật",
     "itemPerfect": "Hoàn hảo",
-    "itemNight": "đêm"
+    "itemNight": "đêm",
+    "realisticExperiences": "Trải Nghiệm Thực Tế",
+    "textExperiences": "Chúng tôi cung cấp nền tảng để người dùng chia sẻ các đánh giá và trải nghiệm chân thực về những nơi họ đã ghé thăm.",
+    "seamlessBooking": "Đặt Vé Mượt Mà",
+    "textBooking": "Đặt vé phương tiện di chuyển và chỗ ở dễ dàng, tất cả trong một nơi.",
+    "personalizedRecommendations": "Gợi Ý Cá Nhân Hóa",
+    "textRecommended": "Nhận các gợi ý phù hợp về đồ ăn và nơi ở tại điểm đến tiếp theo của bạn.",
+    "customTravelPlans": "Kế Hoạch Du Lịch",
+    "textPlans": "Lập kế hoạch cho các chuyến đi theo cách của bạn, với các lịch trình chi tiết và ghi chú cá nhân."
   }
 }

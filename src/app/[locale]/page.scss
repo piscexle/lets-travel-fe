@@ -741,6 +741,7 @@
     }
     &-container {
       width: 100%;
+      margin-bottom: 80px;
       .blogs-left {
         &-content {
           position: relative;
@@ -916,6 +917,45 @@
       }
     }
   }
+
+  &-values {
+    margin-bottom: 80px;
+    .values-col {
+      .values-card {
+        padding: 40px 20px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        box-shadow: 0 0 15px rgba(0, 0, 0, 0.1);
+        border-radius: 8px;
+        height: 100%;
+        text-align: center;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+        &:hover {
+          transform: scale(1.05);
+          box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+          background-color: var(--primary-color);
+          
+          span, h3 {
+            color: #ffffff !important;
+          }
+        }
+
+        h3 {
+          margin-top: 20px;
+          color: var(--primary-color);
+        }
+        
+        p {
+          color: #777;
+        }
+      }
+    }
+  }
+  
 
   // liên hệ
   &-contact-us {
