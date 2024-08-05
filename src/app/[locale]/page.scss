@@ -735,13 +735,12 @@
 
   // blogs
   &-blogs {
-    margin-bottom: 30px;
+    margin-bottom: 80px;
     @media (max-width: $xs-min-width) {
       margin-bottom: 16px;
     }
     &-container {
       width: 100%;
-      margin-bottom: 80px;
       .blogs-left {
         &-content {
           position: relative;
@@ -915,6 +914,10 @@
           }
         }
       }
+    }
+    .btn-load-more {
+      text-align: center;
+      margin-top: 20px;
     }
   }
 

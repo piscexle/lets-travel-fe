@@ -692,6 +692,16 @@ const HomePage = () => {
               </CarouselAnt>
             </Col>
           </Row>
+          <div className="btn-load-more">
+            <CustomButton
+              type="primary"
+              onClick={() => {
+                router.push('/');
+              }}
+            >
+              Load more blogs
+            </CustomButton>
+          </div>
         </div>
 
         {/* liên hệ */}
