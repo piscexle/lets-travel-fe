@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Card as CardAnt, Rate, Space } from 'antd';
+import { Avatar, Card as CardAnt, Flex, Rate, Space } from 'antd';
 import Image from 'next/image';
 import { createRGBDataURL } from '@/utils/createRGBDataURL';
 import './style.scss';
@@ -16,7 +16,6 @@ interface Props {
   type: 'STAYS' | 'BLOGS';
   description?: string;
   createdAt?: string;
-  onClickShowMore?: () => void;
   name: string;
   rate?: number;
   amountVN: number;
@@ -24,16 +23,17 @@ interface Props {
   tienVN: number;
   tienUS: number;
   discountPercentage?: number;
-  staySlug: string;
+  slug: string;
   thumbnail: string;
   place: string;
+  avatar?: string;
+  author?: string;
 }
 
 const CardItem = ({
   // id,
   type,
   description,
-  onClickShowMore,
   name,
   rate,
   amountVN,
@@ -42,9 +42,11 @@ const CardItem = ({
   tienUS,
   discountPercentage,
   createdAt,
-  staySlug,
+  slug,
   thumbnail,
   place,
+  avatar,
+  author,
 }: Props) => {
   const t = useTranslations('common');
   const locale = useLocale();
@@ -121,11 +123,11 @@ const CardItem = ({
     // };
 
     <CardAnt
-      className={`${type === 'STAYS' ? 'wrapper-card' : 'wrapper-card-new'}`}
+      className="wrapper-card"
       hoverable
       cover={
         <div className="wrapper-cart-image">
-          <Link href={`${type === 'BLOGS' ? '/news' : ''}/${staySlug}`}>
+          <Link href={`${type === 'BLOGS' ? '/news' : ''}/${slug}`}>
             <Image
               src={thumbnail as string}
               alt=""
@@ -158,7 +160,7 @@ const CardItem = ({
       }
     >
       <div className="wrapper-cart-info">
-        <Link href={`${type === 'BLOGS' ? '/news' : ''}/${staySlug}`}>
+        <Link href={`${type === 'BLOGS' ? '/news' : ''}/${slug}`}>
           <p className="wrapper-cart-info-title">{name || ''}</p>
         </Link>
         {/* {materialName?.vi && (
@@ -236,11 +238,13 @@ const CardItem = ({
         {type === 'BLOGS' && (
           <>
             {description && <p className="wrapper-news-info-description">{description}</p>}
-            <div className="news-btn">
-              <Button className="wrapper-news-info-btn" onClick={onClickShowMore} aria-hidden>
-                <p>Xem thêm</p>
-              </Button>
-            </div>
+            <Flex align="center" className="avatar">
+              <Avatar size={{ xs: 32, sm: 32, md: 25, lg: 32, xl: 40, xxl: 100 }} src={avatar} />
+              <div className="author">
+                <p>{author}</p>
+                <p>{createdAt}</p>
+              </div>
+            </Flex>
           </>
         )}
       </div>

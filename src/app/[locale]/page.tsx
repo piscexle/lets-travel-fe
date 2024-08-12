@@ -8,31 +8,24 @@ import DestinationComponent from '@/components/HomeComponent/Destination';
 // import HomeNewsComponent from '@/components/HomeComponent/HomeNews';
 // import HomeContactComponent from '@/components/HomeComponent/Contact';
 import { MainClient } from '@/layouts/MainClient';
-import React, { Suspense, useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '@/store';
 import { useRouter } from '@/navigation';
-import { useLocale, useTranslations } from 'next-intl';
+import { useAppDispatch } from '@/store';
 import { getDataServices } from '@/store/services/services.action';
-import { Button, Col, Flex, Input, Row, Spin, Carousel as CarouselAnt, Avatar } from 'antd';
+import { Avatar, Button, Carousel as CarouselAnt, Col, Flex, Input, Row, Spin } from 'antd';
+import { useTranslations } from 'next-intl';
+import React, { Suspense, useEffect, useState } from 'react';
 // import { resetServicesDetail } from '@/store/services/services.reducer';
 // import ArrowIcon from '@/icons/ArrowIcon';
-import './page.scss';
-import { getInfoBanner } from '@/store/banner/banner.action';
+import Banner from '@/components/Banner/Banner';
+import CustomButton from '@/components/Button/CustomButton';
+import CardItem from '@/components/Card/Card';
+import { NextArrow, PrevArrow } from '@/components/Carousel/ArrowCarousel';
 import SectionHead from '@/components/SectionHead/SectionHead';
+import Transports from '@/components/Transports/page';
+import SearchIcon from '@/icons/SearchIcon';
+import { getInfoBanner } from '@/store/banner/banner.action';
 import { getCustomerFeedback } from '@/store/customer/customer.action';
 import { getListNewsAction } from '@/store/news/news.action';
-import PhoneIcon from '@/icons/PhoneIcon';
-import GmailIcon from '@/icons/GmailIcon';
-import FacebookIcon from '@/icons/FacebookIcon';
-import EmailIcon from '@/icons/EmailIcon';
-import Banner from '@/components/Banner/Banner';
-import { v4 as uuidv4 } from 'uuid';
-import { NextArrow, PrevArrow } from '@/components/Carousel/ArrowCarousel';
-import SearchIcon from '@/icons/SearchIcon';
-import { useSearchParams } from 'next/navigation';
-import Transports from '@/components/Transports/page';
-import CardItem from '@/components/Card/Card';
-import CustomButton from '@/components/Button/CustomButton';
 import {
   ClockCircleOutlined,
   FlagOutlined,
@@ -40,7 +33,10 @@ import {
   SmileOutlined,
   StarOutlined,
 } from '@ant-design/icons';
+import { useSearchParams } from 'next/navigation';
 import { useMediaQuery } from 'react-responsive';
+import { v4 as uuidv4 } from 'uuid';
+import './page.scss';
 
 // type TypesAboutUs = {
 //   id?: string;
@@ -136,7 +132,7 @@ const carouselBlogSettings = {
 const HomePage = () => {
   // const { services } = useAppSelector((state) => state.serviceSlice);
   // const { infoBanner } = useAppSelector((state) => state.bannerSlice);
-  const { infoBusiness } = useAppSelector((state) => state.businessSlice);
+  // const { infoBusiness } = useAppSelector((state) => state.businessSlice);
   // const { dataWhatWeDo } = useAppSelector((state) => state.whatWeDosSlice);
   // const { dataCustomerByWhatWeDo } = useAppSelector((state) => state.customerSlice);
 
@@ -145,9 +141,10 @@ const HomePage = () => {
     (searchParams.get('searchKey') as string) || ''
   );
 
+  // const myVideoBannerRef = useRef<any>(null);
+
   const router = useRouter();
   const dispatch = useAppDispatch();
-  const locale = useLocale();
   const t = useTranslations('common');
 
   useEffect(() => {
@@ -286,6 +283,86 @@ const HomePage = () => {
     },
   ];
 
+  const dataMockEx = [
+    {
+      id: '1',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+    {
+      id: '2',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      discountPercentage: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+    {
+      id: '3',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      discountPercentage: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+    {
+      id: '4',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+    {
+      id: '5',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+  ];
+
   const dataMockBlogs = [
     {
       id: '1',
@@ -368,40 +445,14 @@ const HomePage = () => {
     },
   ];
 
-  // const settingCarouselField = {
-  //   dots: false,
-  //   infinite: false,
-  //   speed: 500,
-  //   slidesToShow: 6,
-  //   slidesToScroll: 1,
-  //   arrows: true,
-  //   autoplaySpeed: 5000,
-  //   autoplay: false,
-  //   responsive: [
-  //     {
-  //       breakpoint: 1024,
-  //       settings: {
-  //         slidesToShow: 4,
-  //         slidesToScroll: 1,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 768,
-  //       settings: {
-  //         slidesToShow: 3,
-  //         slidesToScroll: 1,
-  //       },
-  //     },
-  //     {
-  //       breakpoint: 576,
-  //       settings: {
-  //         slidesToShow: 2,
-  //         slidesToScroll: 1,
-  //       },
-  //     },
-  //   ],
-  // };
-
+  const listVideo = [
+    {
+      id: '1',
+      title: 'Video 1',
+      video: 'https://www.youtube.com/embed/SCFpA7LxWH4',
+      description: 'Video 1 description',
+    },
+  ];
   return (
     <Suspense fallback={<Spin spinning fullscreen />}>
       <MainClient>
@@ -445,94 +496,6 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* phần dịch vụ */}
-        {/* <div className="container">
-          <div className="wrapper-home-page-services">
-            {services?.length > 0 ? (
-              <Row gutter={[20, 20]}>
-                <Col xs={24} sm={24} md={8} lg={8} xl={8}>
-                  <div className="wrapper-home-page-services-item-first">
-                    <h4>{t('itemServices')}</h4>
-                    <h5>{t('itemFirstCardServiceHome')}</h5>
-                    <Flex justify="flex-end">
-                      <Button
-                        type="primary"
-                        onClick={() => {
-                          dispatch(resetServicesDetail());
-                          router.push('/services');
-                        }}
-                      >
-                        {t('itemSeeAll')}
-                      </Button>
-                    </Flex>
-                  </div>
-                </Col>
-                {services.map((el) => (
-                  <Col xs={24} sm={24} md={8} lg={8} xl={8} key={el.id}>
-                    <div className="wrapper-home-page-services-item">
-                      <Flex vertical className="wrapper-home-page-services-item-content">
-                        <Flex justify="space-between" align="center">
-                          <h4>{el?.title?.[locale]}</h4>
-                          <ImageAnt src={el.icon} alt="" preview={false} />
-                        </Flex>
-                        <Typography.Paragraph
-                          ellipsis={{ rows: 4, symbol: ' ' }}
-                          className="wrapper-home-page-services-item-content-desc"
-                        >
-                          {el?.description?.[locale]}
-                        </Typography.Paragraph>
-                        <Flex justify="flex-end">
-                          <Button
-                            onClick={() =>
-                              router.push({
-                                pathname: '/services/[slug]',
-                                params: { slug: el.id },
-                              })
-                            }
-                            icon={<ArrowIcon />}
-                          />
-                        </Flex>
-                      </Flex>
-                    </div>
-                  </Col>
-                ))}
-              </Row>
-            ) : null}
-          </div>
-        </div> */}
-
-        {/* phần về chúng tôi */}
-        {/* <div className="container">
-          <div className="wrapper-home-page-about-us">
-            <picture className="wrapper-home-page-about-us-image">
-              <source srcSet="/images/tech_background.jpg" type="image/jpg" />
-              <img
-                className="wrapper-home-page-about-us-image"
-                src="/images/tech_background.jpg"
-                alt="about us computer"
-              />
-            </picture>
-            <div className="wrapper-home-page-about-us-opacity-layer" />
-            <div className="wrapper-home-page-about-us-carousel">
-              <Carousel className="carousel-main" autoplay={false}>
-                {dataMockAboutUs.map((item) => (
-                  <div className="wrapper-home-page-about-us-carousel-content" key={item.id}>
-                    <h3 className="wrapper-home-page-about-us-carousel-title">{item.title}</h3>
-                    <span className="wrapper-home-page-about-us-carousel-description">
-                      {item.content}
-                    </span>
-                  </div>
-                ))}
-              </Carousel>
-            </div>
-          </div>
-        </div> */}
-
-        {/* lĩnh vực */}
-        {/* <SectionHead title={t('itemField')} titleIsLeft={false} /> */}
-        {/* <div className="container">
-        <Carousel {...settingCarouselField}></Carousel>
-      </div> */}
         <DestinationComponent />
 
         {/* di chuyển */}
@@ -598,7 +561,7 @@ const HomePage = () => {
                 name={item.name}
                 amountVN={item.amountVN}
                 amountUS={item.amountUS}
-                staySlug={item.staySlug}
+                slug={item.staySlug}
                 thumbnail={item.thumbnail}
                 tienVN={item.tienVN}
                 tienUS={item.tienUS}
@@ -621,15 +584,15 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* Blogs */}
+        {/* Blogs food */}
         <SectionHead
           miniTitle="Blog"
           description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
-          title={t('itemExperiences')}
+          title={t('itemCuisine')}
           titleIsLeft
         />
         <div className="container wrapper-home-page-blogs">
-          <Row gutter={[16, 16]} className="wrapper-home-page-blogs-container">
+          <Row gutter={[0, 16]} className="wrapper-home-page-blogs-container">
             <Col xs={24} sm={24} md={16} lg={16} xl={16} xxl={16} className="blogs-left">
               {dataMockBlogs?.[0] && (
                 <div className="blogs-left-content" aria-hidden onClick={() => router.push('/')}>
@@ -704,7 +667,7 @@ const HomePage = () => {
           </div>
         </div>
 
-        {/* liên hệ */}
+        {/* Gía trị */}
         <SectionHead
           miniTitle={t('itemValues')}
           description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
@@ -726,44 +689,76 @@ const HomePage = () => {
             </Row>
           </div>
         </div>
-        <div className="container wrapper-home-page-contact-us">
-          <div className="contact-info">
-            <div className="container-info">
-              <Flex vertical align="center">
-                <h3>{t('textInfo')}</h3>
-                <div className="text-info">
-                  <div className="block-mobile">
-                    <Flex vertical>
-                      <Flex className="text-margin">
-                        <PhoneIcon />
-                        <p>{infoBusiness?.phoneNumber}</p>
-                      </Flex>
-                      <Flex>
-                        <GmailIcon />
-                        <p>{infoBusiness?.gmail}</p>
-                      </Flex>
-                    </Flex>
-                  </div>
-                  <div>
-                    <Flex vertical>
-                      <Flex className="text-margin">
-                        <FacebookIcon />
-                        <a href={infoBusiness.facebook} target="_blank" rel="noreferrer">
-                          Lets travel
-                        </a>
-                      </Flex>
-                      <Flex>
-                        <EmailIcon />
-                        <p>{infoBusiness.telegram}</p>
-                      </Flex>
-                    </Flex>
-                  </div>
-                </div>
-                <p className="text-desc">{infoBusiness?.informationText?.[locale]}</p>
-              </Flex>
-            </div>
+
+        {/* Kinh nghiệm */}
+        <SectionHead
+          miniTitle="Blog"
+          description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
+          title={t('itemExperiences')}
+          titleIsLeft
+        />
+        <div className="container wrapper-home-page-stays">
+          <CarouselAnt {...carouselSectionSettings}>
+            {dataMockEx.map((item) => (
+              <CardItem
+                key={uuidv4()}
+                name={item.name}
+                amountVN={item.amountVN}
+                amountUS={item.amountUS}
+                slug={item.staySlug}
+                thumbnail={item.thumbnail}
+                tienVN={item.tienVN}
+                tienUS={item.tienUS}
+                discountPercentage={item.discountPercentage}
+                type="BLOGS"
+                place={item.place}
+                description={item.description}
+                createdAt={item.createdAt}
+                author={item.author}
+                avatar={item.avatar}
+              />
+            ))}
+          </CarouselAnt>
+          <div className="btn-load-more">
+            <CustomButton
+              type="primary"
+              onClick={() => {
+                router.push('/');
+              }}
+            >
+              Load more {t('itemExperiences')}
+            </CustomButton>
           </div>
         </div>
+
+        {listVideo?.map((item: any) => (
+          // eslint-disable-next-line react/jsx-key
+          <div className="wrapper-banner-video">
+            {/* <video
+              ref={myVideoBannerRef}
+              // controls
+              muted
+              playsInline
+              data-inline-media
+              loop
+              preload="metadata"
+              autoPlay={false}
+              // role="img"
+            >
+              <source src={`${item?.video}#t=0.001`} type="video/mp4" />
+              Your browser does not support HTML5 video.
+            </video> */}
+            <iframe
+              width="100%"
+              height="550"
+              src={`${item?.video}`}
+              title="YouTube video player"
+              frameBorder="0"
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+            />
+          </div>
+        ))}
       </MainClient>
     </Suspense>
   );
