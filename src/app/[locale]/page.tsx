@@ -592,7 +592,7 @@ const HomePage = () => {
           titleIsLeft
         />
         <div className="container wrapper-home-page-blogs">
-          <Row gutter={[0, 16]} className="wrapper-home-page-blogs-container">
+          <Row gutter={[16, 16]} className="wrapper-home-page-blogs-container">
             <Col xs={24} sm={24} md={16} lg={16} xl={16} xxl={16} className="blogs-left">
               {dataMockBlogs?.[0] && (
                 <div className="blogs-left-content" aria-hidden onClick={() => router.push('/')}>

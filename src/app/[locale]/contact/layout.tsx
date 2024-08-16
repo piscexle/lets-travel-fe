@@ -3,8 +3,8 @@ import { unstable_setRequestLocale } from 'next-intl/server';
 import React from 'react';
 
 export const metadata: Metadata = {
-  title: 'Career',
-  description: 'Career',
+  title: 'Contact',
+  description: 'Contact',
 };
 
 const Layout = ({

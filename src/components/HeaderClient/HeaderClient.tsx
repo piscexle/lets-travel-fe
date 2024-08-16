@@ -131,8 +131,8 @@ const HeaderClient = () => {
         key: `/${locale}/projects`,
       },
       {
-        label: <Link href="/career">{t('contactHome')}</Link>,
-        key: `/${locale}/career`,
+        label: <Link href="/contact">{t('contactHome')}</Link>,
+        key: `/${locale}/contact`,
       },
     ],
     [t, setOpen, router]

@@ -1,0 +1,37 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.wrapper-contact {
+  margin: 60px 0;
+
+  .upload-form {
+    width: 100%;
+    height: 172px;
+    border-radius: 12px;
+    border: solid 1px var(--secondary-color);
+    background: #efeeec;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    @media (max-width: $xs-max-width-large) {
+      width: 100%;
+    }
+    svg {
+      path {
+        color: #c5c0b7;
+      }
+    }
+    p {
+      color: #c5c0b7;
+    }
+    &:hover {
+      cursor: pointer;
+    }
+  }
+  
+  .text-privacy {
+    color: var(--secondary-color);
+    margin-bottom: 24px;
+  }
+}
