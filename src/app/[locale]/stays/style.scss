@@ -1,0 +1,29 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.ant-carousel {
+  z-index: -1;
+}
+.wrapper-search-stays {
+  // position: absolute;
+  margin-top: -140px;
+  background-color: #ffffff;
+  // top: 90%;
+  // left: 50%;
+  // transform: translate(-50%, -50%);
+  border-radius: 12px;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+  padding: 24px;
+
+  .ant-select-single, .ant-picker-outlined, .ant-btn {
+    height: 48px;
+  }
+
+  .ant-picker-outlined, .ant-btn {
+    width: 100%;
+  }
+}
+
+.wrapper-stays-content {
+  height: 800px;
+}

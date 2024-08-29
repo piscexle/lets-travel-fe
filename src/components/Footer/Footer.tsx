@@ -134,8 +134,7 @@ const FooterClient = () => {
               <Flex vertical className="footer-fb-content" justify="space-between">
                 <div className="fb-pnl">
                   <iframe
-                    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=100008118336402%2Ffacebook&height=300&small_header=false&adapt_container_width=true&show_facepile=true&appId=100008118336402"
-                    // src="https://www.facebook.com/profile.php?id=100008118336402"
+                    src="https://www.facebook.com/plugins/page.php?href=https://www.facebook.com/profile.php?id=61564505001107%2Ffacebook&height=300&small_header=false&adapt_container_width=true&show_facepile=true&appId=100008118336402"
                     width="100%"
                     height="100%"
                     title="web"
@@ -160,8 +159,9 @@ const FooterClient = () => {
       </div>
       <div className="wrapper-footer-all-right">
         <p>
-          Copyright @ 2024 Lets travel - Designed and developed by <a href="/">IC Technology</a>.
-          All Rights Reserved
+          Copyright @ 2024 Lets travel - Designed and developed by{' '}
+          <a href="https://www.facebook.com/profile.php?id=61564505001107">IC Technology</a>. All
+          Rights Reserved
         </p>
       </div>
     </footer>

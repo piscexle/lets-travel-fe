@@ -94,7 +94,7 @@ const HeaderClient = () => {
             {t('serviceHome')} <DownOutlined />
           </span>
         ),
-        key: '/introduce',
+        key: '/services',
         onClick: () => {
           setOpen(false);
           // setCurrent(`introduce`);
@@ -102,22 +102,22 @@ const HeaderClient = () => {
         children: [
           {
             label: <span className="item-introduce">{t('itemTransport')}</span>,
-            key: 'about-us',
+            key: 'transports',
             icon: <FlyIcon />,
             onClick: () => {
               setOpen(false);
               // setCurrent('/introduce');
-              router.push('/about-us');
+              router.push('/transports');
             },
           },
           {
             label: <span className="item-introduce">{t('itemStay')}</span>,
-            key: 'structure',
+            key: 'stays',
             icon: <HomeIcon />,
             onClick: () => {
               setOpen(false);
               // setCurrent('/introduce');
-              router.push('/organizational-chart');
+              router.push('/stays');
             },
           },
         ],
@@ -250,7 +250,7 @@ const HeaderClient = () => {
                 ) : (
                   <Link href="/dang-nhap">
                     <Space>
-                      <Button className="btn-login">
+                      <Button type="primary" className="btn-login">
                         <LoginOutlined /> {t('itemLogin')}
                       </Button>
                     </Space>
