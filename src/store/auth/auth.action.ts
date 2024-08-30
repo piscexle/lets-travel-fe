@@ -14,4 +14,16 @@ const loginAction = createAsyncThunk(
   }
 );
 
-export { loginAction };
+const doSendMailForgotPasswordAction = createAsyncThunk(
+  'auth/doSendMailForgotPassword',
+  async (email: string, thunkAPI) => {
+    try {
+      const res = await auth.doSendMailForgotPassword(email);
+      return { ...res, email };
+    } catch (error: any) {
+      return thunkAPI.rejectWithValue({ error: error.response.data.message });
+    }
+  }
+);
+
+export { loginAction, doSendMailForgotPasswordAction};

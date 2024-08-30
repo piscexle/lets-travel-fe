@@ -1,0 +1,203 @@
+@import '@/styles/mixins.scss';
+@import '@/styles/variables.scss';
+
+.wrapper-auth {
+  background: url(/images/bannerHG.png) center center no-repeat;
+  background-size: cover;
+  width: 100%;
+
+  .content-auth {
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+  }
+
+  &-left {
+    width: 50%;
+    height: 100%;
+    @media (max-width: $xs-max-width) {
+      width: 100%;
+    }
+
+    &-logo {
+      position: relative;
+    }
+    &-info {
+      width: 520px;
+      border-radius: 20px;
+      background-color: rgba(255, 255, 255, 0.55);
+      padding: 24px 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      @media (max-width: $xs-max-width) {
+        width: 100%;
+        padding: 12px;
+        img {
+          margin-top: 24px;
+        }
+      }
+      .login-form {
+        width: 100%;
+        @media (max-width: $xs-max-width) {
+          width: 100%;
+        }
+        .ant-typography {
+          text-align: center;
+        }
+
+        .ant-btn-link {
+          color: var(--primary-color);
+        }
+
+        .text-forgot-password {
+          color: var(--secondary-color);
+          font-size: 1.4rem;
+          font-style: normal; 
+          margin-bottom: 24px;
+          text-align: end;
+
+          &:hover {
+            cursor: pointer;
+            color: var(--primary-color);
+          }
+        }
+
+        .wrapper-btn-auth {
+          .ant-btn {       
+              background-color: var(--primary-color) !important;
+              &:hover {
+                color: #ffffff !important;
+              }
+            }
+        }
+      }
+      &-logo {
+        position: relative;
+      }
+
+      &-title {
+        text-transform: capitalize;
+        font-size: 3.2rem;
+        font-weight: 600;
+        margin: 12px 0 4px;
+
+        @media (max-width: $xs-max-width) {
+          font-size: 2rem;
+        }
+      }
+
+      &-sub {
+        font-size: 1.4rem;
+        margin-bottom: 24px;
+      }
+
+      .btn-social-google {
+        background-color: #ffffff !important;
+        color: #000000 !important;
+        display: flex !important;
+        align-items: center !important;
+        justify-content: center !important;
+        &:hover {
+          border-color: var(--primary-color) !important;
+        }
+      }
+
+      .text-more {
+        font-size: 1.4rem;
+        margin-top: 24px;
+        text-align: center;
+        letter-spacing: 0.4px;
+
+        &-change {
+          color: var(--secondary-color);
+
+          &:hover {
+            cursor: pointer;
+            color: var(--primary-color);
+          }
+        }
+      }
+      p,
+      label,
+      h5 {
+        color: #000000 !important;
+      }
+
+      .ant-divider {
+        span {
+          color: #000000;
+        }
+        
+      }
+      .ant-divider-with-text {
+        &::before, &::after {
+          background-color: #ffffff !important;
+        }
+      }
+    }
+  }
+}
+
+.wrapper-form-forgot-password {
+  width: 100%;
+  &-head {
+    display: flex;
+    align-items: center;
+    position: relative;
+    p {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      -webkit-transform: translateX(-50%) translateY(-50%);
+      transform: translateX(-50%) translateY(-50%);
+      color: rgba(0, 0, 0, 0.7);
+
+      text-align: center;
+      font-size: 2rem;
+      font-style: normal;
+      font-weight: 600;
+      line-height: normal;
+      letter-spacing: 0.6px;
+
+      @media (max-width: $xs-max-width) {
+        font-size: 1.6rem;
+      }
+    }
+
+    button {
+      margin-right: auto;
+      svg {
+        color: #474747;
+      }
+    }
+  }
+
+  &-des {
+    color: #4d4d4d;
+    text-align: center;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+    margin: 12px 0 24px;
+  }
+
+  &-note {
+    color: #4d4d4d;
+    text-align: center;
+    font-size: 1.6rem;
+    font-style: normal;
+    font-weight: 400;
+    line-height: normal;
+    letter-spacing: 0.32px;
+  }
+
+  &-success {
+    text-align: center;
+  }
+}
