@@ -129,6 +129,7 @@
     "textPrivacy": "* We will strictly adhere Privacy policy and thoroughly protect the information received from our customers.",
     "itemSubmit": "Submit",
     "itemReset": "Reset",
-    "itemSearchStays": "Search Stays"
+    "itemSearchStays": "Search Stays",
+    "titleSearchStays": "Search by destination"
   }
 }

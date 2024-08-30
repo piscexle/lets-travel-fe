@@ -541,7 +541,7 @@
 
   // lĩnh vực
 
-  // khách hàng đánh giá
+  // phương tiện
   &-transports {
     margin-bottom: 80px;
     
@@ -607,129 +607,6 @@
     .btn-load-more {
       text-align: center;
       margin-top: 20px;
-    }
-  }
-
-  // tổng quan
-  &-overview {
-    margin-bottom: 30px;
-    .quick-fact {
-      max-width: 966px;
-      box-shadow: 0px 0px 32px 0px rgba(0, 0, 0, 0.07);
-      border-radius: 20px;
-      padding: 48px 68px;
-      @media (max-width: $md-min-width) {
-        padding: 30px;
-      }
-      @media (max-width: $xs-min-width) {
-        padding: 25px;
-      }
-      .overview-title {
-        width: 100%;
-        position: relative;
-        h3 {
-          font-size: 4rem;
-          line-height: 50px;
-          font-weight: 700;
-          color: #33363f;
-          text-align: center;
-          text-transform: uppercase;
-
-          @media (max-width: $sm-min-width) {
-            font-size: 3.5rem;
-          }
-          @media (max-width: $xs-min-width) {
-            font-size: 3rem;
-          }
-        }
-        .overview-year {
-          position: absolute;
-          right: 0;
-          top: 50%;
-          transform: translateY(-50%);
-          color: #ff0000;
-          font-size: 1.5rem;
-          line-height: 34px;
-          font-weight: 400;
-          @media (max-width: $sm-min-width) {
-            font-size: 1.2rem;
-          }
-          @media (max-width: $xs-min-width) {
-            display: none;
-            position: relative;
-          }
-        }
-        .responsive-overview-year {
-          display: none;
-          color: #ff0000;
-          font-size: 1.5rem;
-          line-height: 34px;
-          font-weight: 400;
-          @media (max-width: $xs-min-width) {
-            display: block;
-            text-align: center;
-          }
-        }
-      }
-
-      .text-color {
-        margin: 35px 0;
-        display: flex;
-        justify-content: space-between;
-        column-gap: 22px;
-        gap: 20px;
-
-        @media (max-width: $sm-min-width) {
-          margin: 15px 0;
-          justify-content: center;
-          flex-wrap: wrap;
-          gap: 4px;
-        }
-
-        .count-up {
-          span {
-            display: inline-block;
-            width: 44px;
-            text-align: center;
-          }
-
-          &-client {
-            width: 52px;
-          }
-        }
-
-        .text-card {
-          font-size: 3rem;
-          line-height: 56px;
-          font-weight: 700;
-          display: flex;
-          flex-direction: row;
-          flex-wrap: nowrap;
-          align-items: center;
-          @media (max-width: $xs-min-width) {
-            font-size: 2.5rem;
-          }
-        }
-        .text-red {
-          color: #ff0c0c;
-        }
-        .text-green {
-          color: #FFCB45;
-        }
-        .text-yellow {
-          color: #ecc805;
-        }
-        .text-blue {
-          color: #3305ec;
-        }
-      }
-      .text-intro {
-        font-size: 1.5rem;
-        line-height: 34px;
-        text-align: center;
-        font-weight: 400;
-        text-transform: capitalize;
-      }
     }
   }
 
