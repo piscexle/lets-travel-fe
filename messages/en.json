@@ -130,6 +130,9 @@
     "itemSubmit": "Submit",
     "itemReset": "Reset",
     "itemSearchStays": "Search Stays",
-    "titleSearchStays": "Search by destination"
+    "titleSearchStays": "Search by destination",
+    "offer": "Offer",
+    "titleForYou": "For you",
+    "itemOfferVoucher": "Get instant deals to make your trip easier."
   }
 }

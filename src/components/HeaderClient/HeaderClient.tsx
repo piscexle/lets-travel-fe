@@ -112,7 +112,7 @@ const HeaderClient = () => {
           },
           {
             label: <span className="item-introduce">{t('itemStay')}</span>,
-            key: 'stays',
+            key: `/${locale}/stays`,
             icon: <HomeIcon />,
             onClick: () => {
               setOpen(false);
