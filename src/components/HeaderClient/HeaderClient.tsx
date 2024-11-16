@@ -126,10 +126,10 @@ const HeaderClient = () => {
         label: <Link href="/news">{t('itemExperiences')}</Link>,
         key: `/${locale}/news`,
       },
-      {
-        label: <Link href="/projects">{t('itemPlaceToStay')}</Link>,
-        key: `/${locale}/projects`,
-      },
+      // {
+      //   label: <Link href="/projects">{t('itemPlaceToStay')}</Link>,
+      //   key: `/${locale}/projects`, //voucher
+      // },
       {
         label: <Link href="/contact">{t('contactHome')}</Link>,
         key: `/${locale}/contact`,

@@ -175,6 +175,72 @@ const StayPage = () => {
       buttonLink: 'https://shopee.vn',
     },
   ];
+
+  const dataMockEx = [
+    {
+      id: '1',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+    {
+      id: '2',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      discountPercentage: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+    {
+      id: '3',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      discountPercentage: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+    {
+      id: '4',
+      staySlug: '/',
+      name: 'Khách sạn Hà Giang',
+      thumbnail: '/images/delivery1.png',
+      amountVN: 0,
+      amountUS: 0,
+      tienVN: 0,
+      tienUS: 0,
+      place: 'Đà Lạt',
+      description: 'hello world',
+      createdAt: '2024-08-09',
+      avatar: '/images/avatar1.jpg',
+      author: 'John',
+    },
+  ];
+
   return (
     <MainClient>
       <Banner
@@ -360,6 +426,48 @@ const StayPage = () => {
                 Load more vouchers
               </CustomButton>
             </div>
+          </div>
+        </div>
+        {/* Kinh nghiệm */}
+        <SectionHead
+          miniTitle="Blog"
+          description="Product Quality Is Our Priority, And Always Guarantees Halal And Safety Until It Is In Your Hands."
+          title={t('itemExperiences')}
+          titleIsLeft
+        />
+        <div className="wrapper-services-page-stays">
+          <Row gutter={[12, 12]}>
+            {dataMockEx.map((item, index) => (
+              <Col xs={12} sm={12} md={6} lg={6} xl={6} key={index}>
+                <CardItem
+                  key={uuidv4()}
+                  name={item.name}
+                  amountVN={item.amountVN}
+                  amountUS={item.amountUS}
+                  slug={item.staySlug}
+                  thumbnail={item.thumbnail}
+                  tienVN={item.tienVN}
+                  tienUS={item.tienUS}
+                  discountPercentage={item.discountPercentage}
+                  type="BLOGS"
+                  place={item.place}
+                  description={item.description}
+                  createdAt={item.createdAt}
+                  author={item.author}
+                  avatar={item.avatar}
+                />
+              </Col>
+            ))}
+          </Row>
+          <div className="btn-load-more">
+            <CustomButton
+              type="primary"
+              onClick={() => {
+                router.push('/');
+              }}
+            >
+              Load more {t('itemExperiences')}
+            </CustomButton>
           </div>
         </div>
       </div>
